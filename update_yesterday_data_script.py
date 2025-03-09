@@ -3,7 +3,6 @@
 
 # In[ ]:
 
-
 import asyncio
 from pylitterbot import Account
 import pandas as pd
@@ -11,8 +10,6 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 import sys
-
-# No need for nest_asyncio.apply() since we're using asyncio.run() in a standalone script
 
 sender_email = os.environ["LITTER_ROBOT_USERNAME"]
 sender_password = os.environ["GMAIL_PASSWORD"]
@@ -22,7 +19,7 @@ def send_email(subject, message):
     msg["Subject"] = subject
     msg["From"] = sender_email
     msg["To"] = sender_email
-    with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as server:  # Added timeout as a bonus
+    with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as server: 
         server.starttls()
         server.login(sender_email, sender_password)
         server.sendmail(sender_email, sender_email, msg.as_string())
@@ -39,7 +36,7 @@ async def main():
         await account.disconnect()
     except Exception as e:
         send_email("LR4 Data Warning", "API returned an error: " + str(e))
-        sys.exit(1)  # Using 1 to indicate an error exit code
+        sys.exit(1) 
 
     df = pd.DataFrame({
         'Timestamp': [act.timestamp for act in activities],
@@ -51,7 +48,7 @@ async def main():
     
     if len(df) <= 4:
         send_email("LR4 Data Warning", "Bruno used the litter box <=1 time yesterday!")
-        sys.exit(1)  # Using 1 to indicate an error exit code
+        sys.exit(1) 
     
     mapping = {
         'LitterBoxStatus.CAT_SENSOR_INTERRUPTED': 'Cycle Interrupted',
