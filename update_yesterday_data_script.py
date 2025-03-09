@@ -44,7 +44,6 @@ async def main():
     df['DateTime'] = df['Timestamp'].dt.tz_convert('America/New_York')
     yesterday = pd.Timestamp.now(tz='America/New_York').date() - pd.Timedelta(days=1)
     df = df[df['DateTime'].dt.date == yesterday][['DateTime', 'Activity']]
-    df = df.iloc[:2] 
     if len(df) <= 4:
         send_email("LR4 Data Warning", "Bruno used the litter box <=1 time yesterday!")
         sys.exit()
