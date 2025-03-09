@@ -1,7 +1,7 @@
 name: Update Data Script
 on:
   schedule:
-    - cron: '0 0 1 1 *'
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: '3.10'
       - run: pip install nest_asyncio asyncio pylitterbot pandas
-      - run: python update_today_data_script.py
+      - run: python update_yesterday_data_script.py
       
       - name: Commit and push if changes
         run: |
