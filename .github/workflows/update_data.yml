@@ -1,0 +1,15 @@
+name: Update Data Script
+on:
+  schedule:
+    - cron: '55 20 * * *'
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+      - run: pip install nest_asyncio asyncio pylitterbot pandas
+      - run: python update_today_data_script.py
+
