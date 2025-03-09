@@ -9,17 +9,34 @@ import asyncio
 from pylitterbot import Account
 import pandas as pd
 import os
+import smtplib
+from email.mime.text import MIMEText
+import sys
 
 nest_asyncio.apply()
 
-async def main():
-    account = Account()
-    await account.connect(username=os.environ["LITTER_ROBOT_USERNAME"],
-                          password=os.environ["LITTER_ROBOT_PASSWORD"],
-                          load_robots=True)
-    activities = await account.robots[0].get_activity_history(limit=300)
-    await account.disconnect()
+sender_email = os.environ["LITTER_ROBOT_USERNAME"]
+sender_password = os.environ["GMAIL_PASSWORD"]
 
+def send_email(subject, message):
+    msg = MIMEText(message)
+    msg["Subject"] = subject
+    msg["From"] = sender_email
+    msg["To"] = sender_email
+    with smtplib.SMTP("smtp.gmail.com", 587) as server:
+        server.starttls()
+        server.login(sender_email, sender_password)
+        server.sendmail(sender_email, sender_email, msg.as_string())
+
+async def main():
+    try:
+        account = Account()
+        await account.connect(username=os.environ["LITTER_ROBOT_USERNAME"], password=os.environ["LITTER_ROBOT_PASSWORD"], load_robots=True)
+        activities = await account.robots[0].get_activity_history(limit=300)
+        await account.disconnect()
+    except Exception as e:
+        send_email("LR4 Data Warning", "API returned an error: " + str(e))
+        sys.exit()
     df = pd.DataFrame({
         'Timestamp': [act.timestamp for act in activities],
         'Activity': [str(act.action) for act in activities]
@@ -27,6 +44,9 @@ async def main():
     df['DateTime'] = df['Timestamp'].dt.tz_convert('America/New_York')
     yesterday = pd.Timestamp.now(tz='America/New_York').date() - pd.Timedelta(days=1)
     df = df[df['DateTime'].dt.date == yesterday][['DateTime', 'Activity']]
+    if len(df) <= 4:
+        send_email("LR4 Data Warning", "Bruno used the litter box <=1 time yesterday!")
+        sys.exit()
     mapping = {
         'LitterBoxStatus.CAT_SENSOR_INTERRUPTED': 'Cycle Interrupted',
         'LitterBoxStatus.CAT_DETECTED': 'Cat Detected',
