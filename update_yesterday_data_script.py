@@ -14,8 +14,8 @@ nest_asyncio.apply()
 
 async def main():
     account = Account()
-    await account.connect(username="jiax264@gmail.com",
-                          password="Idolove$mart2",
+    await account.connect(username=os.environ["LITTER_ROBOT_USERNAME"],
+                          password=os.environ["LITTER_ROBOT_PASSWORD"],
                           load_robots=True)
     activities = await account.robots[0].get_activity_history(limit=300)
     await account.disconnect()
