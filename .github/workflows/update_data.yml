@@ -1,7 +1,9 @@
 name: Update Data Script
 on:
   schedule:
-    - cron: '*/2 * * * *'
+    - cron: '*/6 * * * *'
+  workflow_dispatch:  # This allows manual triggering of the workflow
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -12,4 +14,13 @@ jobs:
           python-version: '3.10'
       - run: pip install nest_asyncio asyncio pylitterbot pandas
       - run: python update_today_data_script.py
+      
+      # Add these steps to commit and push changes
+      - name: Commit and push if changes
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add master_lr4_practice.csv
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update data via GitHub Actions"
+          git push
 
