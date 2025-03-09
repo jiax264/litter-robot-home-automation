@@ -25,8 +25,8 @@ async def main():
         'Activity': [str(act.action) for act in activities]
     })
     df['DateTime'] = df['Timestamp'].dt.tz_convert('America/New_York')
-    today = pd.Timestamp.now(tz='America/New_York').date()
-    df = df[df['DateTime'].dt.date == today][['DateTime', 'Activity']]
+    yesterday = pd.Timestamp.now(tz='America/New_York').date() - pd.Timedelta(days=1)
+    df = df[df['DateTime'].dt.date == yesterday][['DateTime', 'Activity']]
     mapping = {
         'LitterBoxStatus.CAT_SENSOR_INTERRUPTED': 'Cycle Interrupted',
         'LitterBoxStatus.CAT_DETECTED': 'Cat Detected',
