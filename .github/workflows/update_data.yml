@@ -1,9 +1,8 @@
 name: Update Data Script
 on:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 6 * * *'  # Fixed syntax
   workflow_dispatch:
-
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -16,10 +15,23 @@ jobs:
         with:
           python-version: '3.10'
       - run: pip install nest_asyncio asyncio pylitterbot pandas
-      - run: |
-          export LITTER_ROBOT_USERNAME=${{ secrets.LITTER_ROBOT_USERNAME }}
-          export LITTER_ROBOT_PASSWORD=${{ secrets.LITTER_ROBOT_PASSWORD }}
-          python update_yesterday_data_script.py
+      
+      # Debug step
+      - name: Debug environment variables
+        run: |
+          echo "Username variable exists: ${{ secrets.LITTER_ROBOT_USERNAME != '' }}"
+          echo "Password variable exists: ${{ secrets.LITTER_ROBOT_PASSWORD != '' }}"
+          echo "Username length: ${#LITTER_ROBOT_USERNAME}"
+          echo "Password length: ${#LITTER_ROBOT_PASSWORD}"
+        env:
+          LITTER_ROBOT_USERNAME: ${{ secrets.LITTER_ROBOT_USERNAME }}
+          LITTER_ROBOT_PASSWORD: ${{ secrets.LITTER_ROBOT_PASSWORD }}
+      
+      - name: Run update script
+        run: python update_yesterday_data_script.py
+        env:
+          LITTER_ROBOT_USERNAME: ${{ secrets.LITTER_ROBOT_USERNAME }}
+          LITTER_ROBOT_PASSWORD: ${{ secrets.LITTER_ROBOT_PASSWORD }}
       
       - name: Commit and push if changes
         run: |
