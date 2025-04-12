@@ -82,9 +82,6 @@ async def main():
     num_visit = int((df['Activity'] == 'Clean Cycle In Progress').sum())
     msg_parts = []
 
-    waste_percent = 90
-    num_visit = 2
-
     if waste_percent >= 80:
         msg_parts.append(f"Waste backet is {waste_percent}% full. Please change ASAP.")
     if num_visit >= 6 or num_visit <= 2:
