@@ -24,6 +24,8 @@ jobs:
           LITTER_ROBOT_USERNAME: ${{ secrets.LITTER_ROBOT_USERNAME }}
           LITTER_ROBOT_PASSWORD: ${{ secrets.LITTER_ROBOT_PASSWORD }}
           GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_EMAIL: ${{ secrets.SLACK_EMAIL }}
           
       
       - name: Commit and push if changes
