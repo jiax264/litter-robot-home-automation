@@ -2105,3 +2105,14 @@ DateTime,Activity,Value
 2025-04-15 22:48:13-04:00,Cycle Interrupted,
 2025-04-15 22:48:40-04:00,Cycle Interrupted,
 2025-04-15 22:50:34-04:00,Clean Cycle Complete,
+2025-04-16 08:45:19-04:00,Cat Detected,
+2025-04-16 08:46:10-04:00,Weight Recorded,8.84
+2025-04-16 08:53:09-04:00,Clean Cycle In Progress,
+2025-04-16 08:53:09-04:00,odometerCleanCycles,
+2025-04-16 08:55:20-04:00,Clean Cycle Complete,
+2025-04-16 21:39:58-04:00,Cat Detected,
+2025-04-16 21:42:44-04:00,Weight Recorded,8.94
+2025-04-16 21:49:44-04:00,Clean Cycle In Progress,
+2025-04-16 21:49:44-04:00,odometerCleanCycles,
+2025-04-16 21:50:20-04:00,Cycle Interrupted,
+2025-04-16 21:52:20-04:00,Clean Cycle Complete,
