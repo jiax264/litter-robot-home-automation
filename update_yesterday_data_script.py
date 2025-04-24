@@ -84,8 +84,8 @@ async def main():
 
     if waste_percent >= 80:
         msg_parts.append(f"Waste backet is {waste_percent}% full. Please change ASAP.")
-    if num_visit >= 6 or num_visit <= 2:
-        msg_parts.append(f":poop: Cat used bathroom {num_visit} times yesterday. Please monitor.")
+    if num_visit >= 12 or num_visit <= 4:
+        msg_parts.append(f":poop: Cats used bathroom {num_visit} times yesterday. Please monitor.")
 
     if msg_parts:
         send_slack_message("\n".join(msg_parts))
