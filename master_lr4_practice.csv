@@ -2398,3 +2398,56 @@ DateTime,Activity,Value
 2025-04-27 21:32:09-04:00,odometerCleanCycles,
 2025-04-27 21:32:10-04:00,Clean Cycle In Progress,
 2025-04-27 21:34:17-04:00,Clean Cycle Complete,
+2025-04-28 00:33:59-04:00,Cat Detected,
+2025-04-28 00:36:49-04:00,Weight Recorded,9.04
+2025-04-28 00:43:47-04:00,odometerCleanCycles,
+2025-04-28 00:43:48-04:00,Clean Cycle In Progress,
+2025-04-28 00:45:55-04:00,Clean Cycle Complete,
+2025-04-28 00:46:31-04:00,Cat Detected,
+2025-04-28 00:47:13-04:00,Weight Recorded,7.44
+2025-04-28 00:54:12-04:00,odometerCleanCycles,
+2025-04-28 00:54:12-04:00,Clean Cycle In Progress,
+2025-04-28 00:56:19-04:00,Clean Cycle Complete,
+2025-04-28 03:03:13-04:00,Cat Detected,
+2025-04-28 03:03:53-04:00,Weight Recorded,9.06
+2025-04-28 03:09:19-04:00,Weight Recorded,9.07
+2025-04-28 03:16:18-04:00,Clean Cycle In Progress,
+2025-04-28 03:16:18-04:00,odometerCleanCycles,
+2025-04-28 03:18:26-04:00,Clean Cycle Complete,
+2025-04-28 05:10:32-04:00,Cat Detected,
+2025-04-28 05:12:10-04:00,Weight Recorded,9.07
+2025-04-28 05:14:12-04:00,Weight Recorded,8.91
+2025-04-28 05:21:11-04:00,odometerCleanCycles,
+2025-04-28 05:21:11-04:00,Clean Cycle In Progress,
+2025-04-28 05:23:19-04:00,Clean Cycle Complete,
+2025-04-28 05:23:42-04:00,Cat Detected,
+2025-04-28 05:31:05-04:00,odometerCleanCycles,
+2025-04-28 05:31:05-04:00,Clean Cycle In Progress,
+2025-04-28 05:33:13-04:00,Clean Cycle Complete,
+2025-04-28 11:41:51-04:00,Cat Detected,
+2025-04-28 11:42:40-04:00,Weight Recorded,9.04
+2025-04-28 11:49:39-04:00,odometerCleanCycles,
+2025-04-28 11:49:39-04:00,Clean Cycle In Progress,
+2025-04-28 11:51:47-04:00,Clean Cycle Complete,
+2025-04-28 16:41:19-04:00,Cat Detected,
+2025-04-28 17:09:59-04:00,Cat Detected,
+2025-04-28 17:12:14-04:00,Weight Recorded,9.04
+2025-04-28 17:15:53-04:00,Weight Recorded,8.66
+2025-04-28 17:22:52-04:00,Clean Cycle In Progress,
+2025-04-28 17:22:52-04:00,odometerCleanCycles,
+2025-04-28 17:23:52-04:00,Cycle Interrupted,
+2025-04-28 17:25:56-04:00,Clean Cycle Complete,
+2025-04-28 19:31:14-04:00,Cat Detected,
+2025-04-28 19:38:23-04:00,odometerCleanCycles,
+2025-04-28 19:38:24-04:00,Clean Cycle In Progress,
+2025-04-28 19:40:34-04:00,Clean Cycle Complete,
+2025-04-28 19:49:35-04:00,Cat Detected,
+2025-04-28 19:49:59-04:00,Weight Recorded,9.17
+2025-04-28 19:56:58-04:00,Clean Cycle In Progress,
+2025-04-28 19:56:58-04:00,odometerCleanCycles,
+2025-04-28 19:59:08-04:00,Clean Cycle Complete,
+2025-04-28 21:01:02-04:00,Cat Detected,
+2025-04-28 21:01:52-04:00,Weight Recorded,8.88
+2025-04-28 21:08:51-04:00,odometerCleanCycles,
+2025-04-28 21:08:51-04:00,Clean Cycle In Progress,
+2025-04-28 21:11:01-04:00,Clean Cycle Complete,
