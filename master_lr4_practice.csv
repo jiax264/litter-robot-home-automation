@@ -3543,3 +3543,45 @@ DateTime,Activity,Value
 2025-05-28 21:19:40-04:00,Clean Cycle In Progress,
 2025-05-28 21:19:40-04:00,odometerCleanCycles,
 2025-05-28 21:21:49-04:00,Clean Cycle Complete,
+2025-05-29 00:22:54-04:00,Cat Detected,
+2025-05-29 00:24:38-04:00,Weight Recorded,9.01
+2025-05-29 00:31:37-04:00,Clean Cycle In Progress,
+2025-05-29 00:31:37-04:00,odometerCleanCycles,
+2025-05-29 00:32:03-04:00,Cycle Interrupted,
+2025-05-29 00:33:24-04:00,Cycle Interrupted,
+2025-05-29 00:35:15-04:00,Clean Cycle Complete,
+2025-05-29 03:44:27-04:00,Cat Detected,
+2025-05-29 03:45:47-04:00,Weight Recorded,8.76
+2025-05-29 03:52:47-04:00,Clean Cycle In Progress,
+2025-05-29 03:52:47-04:00,odometerCleanCycles,
+2025-05-29 03:54:57-04:00,Clean Cycle Complete,
+2025-05-29 03:55:17-04:00,Cat Detected,
+2025-05-29 03:55:27-04:00,Weight Recorded,6.58
+2025-05-29 04:02:26-04:00,odometerCleanCycles,
+2025-05-29 04:02:26-04:00,Clean Cycle In Progress,
+2025-05-29 04:04:37-04:00,Clean Cycle Complete,
+2025-05-29 04:55:18-04:00,Cat Detected,
+2025-05-29 04:56:21-04:00,Weight Recorded,8.77
+2025-05-29 05:00:15-04:00,Weight Recorded,4.35
+2025-05-29 05:01:08-04:00,Weight Recorded,7.61
+2025-05-29 05:08:07-04:00,Clean Cycle In Progress,
+2025-05-29 05:08:07-04:00,odometerCleanCycles,
+2025-05-29 05:08:56-04:00,Cycle Interrupted,
+2025-05-29 05:09:46-04:00,Cycle Interrupted,
+2025-05-29 05:11:36-04:00,Clean Cycle Complete,
+2025-05-29 21:41:46-04:00,Cat Detected,
+2025-05-29 21:42:43-04:00,Weight Recorded,9.14
+2025-05-29 21:49:41-04:00,odometerCleanCycles,
+2025-05-29 21:49:42-04:00,Clean Cycle In Progress,
+2025-05-29 21:51:50-04:00,Clean Cycle Complete,
+2025-05-29 22:11:42-04:00,Cat Detected,
+2025-05-29 22:12:17-04:00,Weight Recorded,8.63
+2025-05-29 22:19:16-04:00,odometerCleanCycles,
+2025-05-29 22:19:16-04:00,Clean Cycle In Progress,
+2025-05-29 22:21:25-04:00,Clean Cycle Complete,
+2025-05-29 23:43:19-04:00,Cat Detected,
+2025-05-29 23:44:47-04:00,Weight Recorded,8.78
+2025-05-29 23:51:46-04:00,odometerCleanCycles,
+2025-05-29 23:51:46-04:00,Clean Cycle In Progress,
+2025-05-29 23:52:35-04:00,Cycle Interrupted,
+2025-05-29 23:54:28-04:00,Clean Cycle Complete,
