@@ -3903,3 +3903,42 @@ DateTime,Activity,Value
 2025-06-08 22:31:35-04:00,Cycle Interrupted,
 2025-06-08 22:32:17-04:00,Cycle Interrupted,
 2025-06-08 22:33:56-04:00,Clean Cycle Complete,
+2025-06-09 00:42:29-04:00,Cat Detected,
+2025-06-09 00:44:11-04:00,Weight Recorded,8.73
+2025-06-09 00:51:38-04:00,Clean Cycles: 695,
+2025-06-09 00:51:38-04:00,Clean Cycle In Progress,
+2025-06-09 00:52:33-04:00,Cycle Interrupted,
+2025-06-09 00:54:47-04:00,Clean Cycle Complete,
+2025-06-09 02:26:56-04:00,Cat Detected,
+2025-06-09 02:28:04-04:00,Weight Recorded,9.0
+2025-06-09 02:35:03-04:00,Clean Cycle In Progress,
+2025-06-09 02:35:03-04:00,Clean Cycles: 696,
+2025-06-09 02:37:03-04:00,Cycle Interrupted,
+2025-06-09 02:37:37-04:00,Clean Cycle Complete,
+2025-06-09 06:09:48-04:00,Cat Detected,
+2025-06-09 06:10:19-04:00,Weight Recorded,8.6
+2025-06-09 06:17:18-04:00,Clean Cycles: 697,
+2025-06-09 06:17:18-04:00,Clean Cycle In Progress,
+2025-06-09 06:17:52-04:00,Cycle Interrupted,
+2025-06-09 06:19:46-04:00,Clean Cycle Complete,
+2025-06-09 07:14:44-04:00,Cat Detected,
+2025-06-09 07:23:39-04:00,Clean Cycle In Progress,
+2025-06-09 07:23:39-04:00,Clean Cycles: 698,
+2025-06-09 07:25:46-04:00,Clean Cycle Complete,
+2025-06-09 13:56:29-04:00,Cat Detected,
+2025-06-09 13:57:19-04:00,Weight Recorded,8.97
+2025-06-09 14:04:19-04:00,Clean Cycles: 699,
+2025-06-09 14:04:19-04:00,Clean Cycle In Progress,
+2025-06-09 14:06:25-04:00,Clean Cycle Complete,
+2025-06-09 22:21:57-04:00,Cat Detected,
+2025-06-09 22:22:44-04:00,Weight Recorded,8.63
+2025-06-09 22:29:44-04:00,Clean Cycle In Progress,
+2025-06-09 22:29:44-04:00,Clean Cycles: 700,
+2025-06-09 22:30:22-04:00,Cycle Interrupted,
+2025-06-09 22:32:15-04:00,Clean Cycle Complete,
+2025-06-09 23:25:51-04:00,Cat Detected,
+2025-06-09 23:26:37-04:00,Weight Recorded,8.7
+2025-06-09 23:32:13-04:00,Weight Recorded,8.84
+2025-06-09 23:39:13-04:00,Clean Cycle In Progress,
+2025-06-09 23:39:13-04:00,Clean Cycles: 701,
+2025-06-09 23:41:19-04:00,Clean Cycle Complete,
