@@ -62,7 +62,7 @@ async def main():
     df = df[df['DateTime'].dt.date == yesterday][['DateTime', 'Activity']]
     
     if len(df) <= 4:
-        send_email("LR4 Data Warning", "Bruno used the litter box <=1 time yesterday!")
+        send_email("LR4 Data Warning", "Bruno & Murano used the litter box <=1 time yesterday!")
         sys.exit(1) 
     
     mapping = {
@@ -72,10 +72,17 @@ async def main():
         'LitterBoxStatus.CLEAN_CYCLE_COMPLETE': 'Clean Cycle Complete'
     }
     df['Activity'] = df['Activity'].map(mapping).fillna(df['Activity'])
+    
     weights = df['Activity'].str.extract(r'Pet Weight Recorded: (\d+\.?\d*) lbs')[0]
     mask = weights.notna()
     df.loc[mask, 'Activity'] = 'Weight Recorded'
     df.loc[mask, 'Value'] = weights[mask].astype(float)
+
+    cycles = df['Activity'].str.extract(r'Clean Cycles: (\d+)')[0]
+    mask_cycles = cycles.notna()
+    df.loc[mask_cycles, 'Activity'] = 'Clean Cycles'
+    df.loc[mask_cycles, 'Value'] = cycles[mask_cycles].astype(int)
+    
     df.sort_values('DateTime', inplace=True)
     df.to_csv("master_lr4_practice.csv", mode='a', header=False, index=False)
 
