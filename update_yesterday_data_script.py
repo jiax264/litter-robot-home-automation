@@ -82,10 +82,16 @@ async def main():
     num_visit = int((df['Activity'] == 'Clean Cycle In Progress').sum())
     msg_parts = []
 
-    if waste_percent >= 80:
+    if waste_percent >= 70:
         msg_parts.append(f"Waste backet is {waste_percent}% full. Please change ASAP.")
-    if num_visit >= 12 or num_visit <= 4:
+    if num_visit >= 10 or num_visit <= 4:
         msg_parts.append(f":poop: Cats used bathroom {num_visit} times yesterday. Please monitor.")
+
+    weight_data = df[df['Activity'] == 'Weight Recorded']['Value'].dropna()
+    if len(weight_data) > 0:
+        avg_weight = weight_data.mean()
+        if avg_weight <= 8.6 or avg_weight >= 9.1:
+            msg_parts.append(f"Avg Weight yesterday = {avg_weight:.1f} lbs. Please investigate.")
 
     if msg_parts:
         send_slack_message("\n".join(msg_parts))
