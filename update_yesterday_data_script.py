@@ -88,8 +88,16 @@ class LitterRobotMonitor:
             "https://slack.com/api/chat.postMessage", headers=headers, json=msg_data
         )
 
+    def _extract_and_update_values(
+        self, df: pd.DataFrame, pattern: str, activity_name: str, dtype: type
+    ) -> None:
+        """Extract values from activity strings and update DataFrame."""
+        values = df["Activity"].str.extract(pattern)[0]
+        mask = values.notna()
+        df.loc[mask, "Activity"] = activity_name
+        df.loc[mask, "Value"] = values[mask].astype(dtype)
+
     async def main(self) -> None:
-        """Main execution method - matches original main() function exactly."""
         try:
             account = Account()
             await account.connect(
@@ -131,15 +139,10 @@ class LitterRobotMonitor:
         }
         df["Activity"] = df["Activity"].map(mapping).fillna(df["Activity"])
 
-        weights = df["Activity"].str.extract(r"Pet Weight Recorded: (\d+\.?\d*) lbs")[0]
-        mask = weights.notna()
-        df.loc[mask, "Activity"] = "Weight Recorded"
-        df.loc[mask, "Value"] = weights[mask].astype(float)
-
-        cycles = df["Activity"].str.extract(r"Clean Cycles: (\d+)")[0]
-        mask_cycles = cycles.notna()
-        df.loc[mask_cycles, "Activity"] = "Clean Cycles"
-        df.loc[mask_cycles, "Value"] = cycles[mask_cycles].astype(int)
+        self._extract_and_update_values(
+            df, r"Pet Weight Recorded: (\d+\.?\d*) lbs", "Weight Recorded", float
+        )
+        self._extract_and_update_values(df, r"Clean Cycles: (\d+)", "Clean Cycles", int)
 
         df.sort_values("DateTime", inplace=True)
         df.to_csv(Config.CSV_OUTPUT_FILE, mode="a", header=False, index=False)
