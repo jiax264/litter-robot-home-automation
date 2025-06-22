@@ -178,7 +178,6 @@ class LitterRobotMonitor:
 
 
 async def main():
-    """Main entry point - preserves original function signature."""
     monitor = LitterRobotMonitor()
     await monitor.main()
 
