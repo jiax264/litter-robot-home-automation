@@ -17,8 +17,8 @@ class Config:
     """Configuration constants for the litter robot monitor."""
 
     # Activity thresholds
-    LOW_USAGE_THRESHOLD = 4
-    HIGH_USAGE_THRESHOLD = 10
+    LOW_USAGE_THRESHOLD = 3
+    HIGH_USAGE_THRESHOLD = 8
 
     # Weight thresholds (in pounds)
     MIN_HEALTHY_WEIGHT = 8.6
