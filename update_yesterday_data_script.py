@@ -17,15 +17,17 @@ class Config:
     """Configuration constants for the litter robot monitor."""
 
     # Activity thresholds
-    LOW_USAGE_THRESHOLD = 3
-    HIGH_USAGE_THRESHOLD = 8
+    LOW_USAGE_THRESHOLD = 4
+    HIGH_USAGE_THRESHOLD = 9
 
     # Weight thresholds (in pounds)
-    MIN_HEALTHY_WEIGHT = 8.6
+    MIN_HEALTHY_WEIGHT = 8.5
     MAX_HEALTHY_WEIGHT = 9.1
+    MIN_VALID_WEIGHT = 7.5  
+    MAX_VALID_WEIGHT = 9.5
 
     # Waste level threshold (percentage)
-    WASTE_ALERT_THRESHOLD = 70
+    WASTE_ALERT_THRESHOLD = 75
 
     # API limits
     ACTIVITY_HISTORY_LIMIT = 300
@@ -164,14 +166,20 @@ class LitterRobotMonitor:
 
         weight_data = df[df["Activity"] == "Weight Recorded"]["Value"].dropna()
         if len(weight_data) > 0:
-            avg_weight = weight_data.mean()
-            if (
-                avg_weight <= Config.MIN_HEALTHY_WEIGHT
-                or avg_weight >= Config.MAX_HEALTHY_WEIGHT
-            ):
-                msg_parts.append(
-                    f"Avg Weight yesterday = {avg_weight:.1f} lbs. Please investigate."
-                )
+            filtered_weight_data = weight_data[
+                (weight_data >= Config.MIN_VALID_WEIGHT) & 
+                (weight_data <= Config.MAX_VALID_WEIGHT)
+            ]
+            
+            if len(filtered_weight_data) > 0:
+                avg_weight = filtered_weight_data.mean()
+                if (
+                    avg_weight <= Config.MIN_HEALTHY_WEIGHT
+                    or avg_weight >= Config.MAX_HEALTHY_WEIGHT
+                ):
+                    msg_parts.append(
+                        f"Avg Weight yesterday = {avg_weight:.1f} lbs. Please investigate."
+                    )
 
         if msg_parts:
             self.send_slack_message("\n".join(msg_parts))
