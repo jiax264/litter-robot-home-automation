@@ -43,27 +43,59 @@
     <script>
         // Function to process CSV data similar to your Python code
         function processWeightData(csvData) {
+            console.log('Total CSV rows:', csvData.length);
+            
             // Filter for 'Weight Recorded' activity and valid weight range
             const weightData = csvData.filter(row => {
                 const activity = row.Activity;
                 const value = parseFloat(row.Value);
-                return activity === 'Weight Recorded' && value >= 7.5 && value <= 9.5;
+                const isValid = activity === 'Weight Recorded' && value >= 7.5 && value <= 9.5;
+                return isValid;
             });
+            
+            console.log('Weight records in range:', weightData.length);
 
-            // Filter for last 90 days
-            const ninetyDaysAgo = new Date();
-            ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
+            // Filter for last 90 days - using more robust date parsing
+            const today = new Date();
+            today.setHours(23, 59, 59, 999); // End of today
+            const ninetyDaysAgo = new Date(today);
+            ninetyDaysAgo.setDate(today.getDate() - 90);
+            ninetyDaysAgo.setHours(0, 0, 0, 0); // Start of day 90 days ago
+            
+            console.log('Filtering from:', ninetyDaysAgo.toISOString(), 'to:', today.toISOString());
 
             const recentData = weightData.filter(row => {
-                const rowDate = new Date(row.DateTime);
-                return rowDate >= ninetyDaysAgo;
+                // Try to parse the DateTime more robustly
+                let rowDate = new Date(row.DateTime);
+                
+                // If the date is invalid, try different parsing approaches
+                if (isNaN(rowDate.getTime())) {
+                    // Try parsing as ISO string or other common formats
+                    const dateStr = row.DateTime.replace(' ', 'T'); // Convert space to T for ISO format
+                    rowDate = new Date(dateStr);
+                }
+                
+                const isInRange = rowDate >= ninetyDaysAgo && rowDate <= today;
+                if (!isInRange) {
+                    console.log('Excluding date:', row.DateTime, '-> parsed as:', rowDate);
+                }
+                return isInRange;
             });
+
+            
+            console.log('Recent data points:', recentData.length);
 
             // Group by date and calculate daily averages
             const dailyGroups = {};
             
             recentData.forEach(row => {
-                const date = new Date(row.DateTime).toISOString().split('T')[0]; // Get just the date part
+                let rowDate = new Date(row.DateTime);
+                if (isNaN(rowDate.getTime())) {
+                    const dateStr = row.DateTime.replace(' ', 'T');
+                    rowDate = new Date(dateStr);
+                }
+                
+                const date = rowDate.toISOString().split('T')[0]; // Get just the date part (YYYY-MM-DD)
                 const value = parseFloat(row.Value);
                 
                 if (!dailyGroups[date]) {
@@ -82,6 +114,9 @@
 
             // Sort by date
             chartData.sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            console.log('Final chart data points:', chartData.length);
+            console.log('Date range:', chartData[0]?.date, 'to', chartData[chartData.length-1]?.date);
             
             return chartData;
         }
