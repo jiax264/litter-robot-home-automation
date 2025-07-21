@@ -186,6 +186,7 @@
         }
 
         // Load and parse the CSV file
+        console.log('Attempting to load CSV from:', './master_lr4_practice.csv');
         Papa.parse('./master_lr4_practice.csv', {
             download: true,
             header: true,
@@ -198,11 +199,13 @@
             },
             error: function(error) {
                 console.error('Error loading CSV:', error);
+                console.log('CSV loading failed, using fallback sample data');
                 // Fallback to sample data if CSV fails to load
                 const sampleData = [
                     { date: '2024-04-22', weight: 8.2 },
                     { date: '2024-04-23', weight: 8.1 },
-                    { date: '2024-04-24', weight: 8.3 }
+                    { date: '2024-04-24', weight: 8.3 },
+                    { date: '2024-05-05', weight: 8.1 }
                 ];
                 createChart(sampleData);
             }
