@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Average Weight</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,84 +41,135 @@
     </div>
 
     <script>
-        // Sample data - replace this with your actual CSV data later
-        const sampleData = [
-            { date: '2024-04-22', weight: 8.2 },
-            { date: '2024-04-23', weight: 8.1 },
-            { date: '2024-04-24', weight: 8.3 },
-            { date: '2024-04-25', weight: 8.0 },
-            { date: '2024-04-26', weight: 8.2 },
-            { date: '2024-04-27', weight: 8.1 },
-            { date: '2024-04-28', weight: 8.4 },
-            { date: '2024-04-29', weight: 8.2 },
-            { date: '2024-04-30', weight: 8.3 },
-            { date: '2024-05-01', weight: 8.1 },
-            { date: '2024-05-02', weight: 8.0 },
-            { date: '2024-05-03', weight: 8.2 },
-            { date: '2024-05-04', weight: 8.3 },
-            { date: '2024-05-05', weight: 8.1 }
-        ];
+        // Function to process CSV data similar to your Python code
+        function processWeightData(csvData) {
+            // Filter for 'Weight Recorded' activity and valid weight range
+            const weightData = csvData.filter(row => {
+                const activity = row.Activity;
+                const value = parseFloat(row.Value);
+                return activity === 'Weight Recorded' && value >= 7.5 && value <= 9.5;
+            });
 
-        // Extract dates and weights
-        const dates = sampleData.map(item => item.date);
-        const weights = sampleData.map(item => item.weight);
+            // Filter for last 90 days
+            const ninetyDaysAgo = new Date();
+            ninetyDaysAgo.setDate(ninetyDaysAgo.getDate() - 90);
 
-        // Create the chart
-        const ctx = document.getElementById('weightChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: dates,
-                datasets: [{
-                    label: 'Average Weight',
-                    data: weights,
-                    borderColor: 'rgb(75, 192, 192)',
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderWidth: 2,
-                    pointRadius: 4,
-                    pointHoverRadius: 6,
-                    tension: 0.1
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Daily Average Weight',
-                        font: {
-                            size: 16,
-                            weight: 'bold'
-                        }
-                    },
-                    legend: {
-                        display: false
-                    }
+            const recentData = weightData.filter(row => {
+                const rowDate = new Date(row.DateTime);
+                return rowDate >= ninetyDaysAgo;
+            });
+
+            // Group by date and calculate daily averages
+            const dailyGroups = {};
+            
+            recentData.forEach(row => {
+                const date = new Date(row.DateTime).toISOString().split('T')[0]; // Get just the date part
+                const value = parseFloat(row.Value);
+                
+                if (!dailyGroups[date]) {
+                    dailyGroups[date] = [];
+                }
+                dailyGroups[date].push(value);
+            });
+
+            // Calculate averages and prepare chart data
+            const chartData = [];
+            Object.keys(dailyGroups).forEach(date => {
+                const values = dailyGroups[date];
+                const average = values.reduce((sum, val) => sum + val, 0) / values.length;
+                chartData.push({ date: date, weight: average });
+            });
+
+            // Sort by date
+            chartData.sort((a, b) => new Date(a.date) - new Date(b.date));
+            
+            return chartData;
+        }
+
+        // Function to create the chart
+        function createChart(processedData) {
+            const dates = processedData.map(item => item.date);
+            const weights = processedData.map(item => item.weight);
+
+            const ctx = document.getElementById('weightChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Average Weight',
+                        data: weights,
+                        borderColor: 'rgb(75, 192, 192)',
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        tension: 0.1
+                    }]
                 },
-                scales: {
-                    y: {
-                        min: 7.5,
-                        max: 9.5,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
                         title: {
                             display: true,
-                            text: 'Average Weight'
+                            text: 'Daily Average Weight',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
                         },
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.1)'
+                        legend: {
+                            display: false
                         }
                     },
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Date'
+                    scales: {
+                        y: {
+                            min: 7.5,
+                            max: 9.5,
+                            title: {
+                                display: true,
+                                text: 'Average Weight'
+                            },
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            }
                         },
-                        ticks: {
-                            maxRotation: 45,
-                            minRotation: 45
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Date'
+                            },
+                            ticks: {
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
                         }
                     }
                 }
+            });
+        }
+
+        // Load and parse the CSV file
+        Papa.parse('./master_lr4_practice.csv', {
+            download: true,
+            header: true,
+            skipEmptyLines: true,
+            complete: function(results) {
+                console.log('CSV loaded successfully:', results.data.length, 'rows');
+                const processedData = processWeightData(results.data);
+                console.log('Processed data:', processedData.length, 'data points');
+                createChart(processedData);
+            },
+            error: function(error) {
+                console.error('Error loading CSV:', error);
+                // Fallback to sample data if CSV fails to load
+                const sampleData = [
+                    { date: '2024-04-22', weight: 8.2 },
+                    { date: '2024-04-23', weight: 8.1 },
+                    { date: '2024-04-24', weight: 8.3 }
+                ];
+                createChart(sampleData);
             }
         });
     </script>
