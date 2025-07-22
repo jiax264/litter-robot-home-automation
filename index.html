@@ -43,8 +43,6 @@
     <script>
         // Function to process CSV data similar to your Python code
         function processWeightData(csvData) {
-            console.log('Total CSV rows:', csvData.length);
-            
             // Filter for 'Weight Recorded' activity and valid weight range
             const weightData = csvData.filter(row => {
                 const activity = row.Activity;
@@ -52,8 +50,6 @@
                 const isValid = activity === 'Weight Recorded' && value >= 7.5 && value <= 9.5;
                 return isValid;
             });
-            
-            console.log('Weight records in range:', weightData.length);
 
             // Filter for last 90 days - using more robust date parsing
             const today = new Date();
@@ -61,8 +57,6 @@
             const ninetyDaysAgo = new Date(today);
             ninetyDaysAgo.setDate(today.getDate() - 90);
             ninetyDaysAgo.setHours(0, 0, 0, 0); // Start of day 90 days ago
-            
-            console.log('Filtering from:', ninetyDaysAgo.toISOString(), 'to:', today.toISOString());
 
             const recentData = weightData.filter(row => {
                 // Try to parse the DateTime more robustly
@@ -76,14 +70,8 @@
                 }
                 
                 const isInRange = rowDate >= ninetyDaysAgo && rowDate <= today;
-                if (!isInRange) {
-                    console.log('Excluding date:', row.DateTime, '-> parsed as:', rowDate);
-                }
                 return isInRange;
             });
-
-            
-            console.log('Recent data points:', recentData.length);
 
             // Group by date and calculate daily averages
             const dailyGroups = {};
@@ -114,9 +102,6 @@
 
             // Sort by date
             chartData.sort((a, b) => new Date(a.date) - new Date(b.date));
-            
-            console.log('Final chart data points:', chartData.length);
-            console.log('Date range:', chartData[0]?.date, 'to', chartData[chartData.length-1]?.date);
             
             return chartData;
         }
@@ -156,6 +141,13 @@
                         },
                         legend: {
                             display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `Average Weight: ${context.parsed.y.toFixed(2)}`;
+                                }
+                            }
                         }
                     },
                     scales: {
@@ -176,8 +168,8 @@
                                 text: 'Date'
                             },
                             ticks: {
-                                maxRotation: 45,
-                                minRotation: 45
+                                maxRotation: 90,
+                                minRotation: 90
                             }
                         }
                     }
@@ -186,20 +178,15 @@
         }
 
         // Load and parse the CSV file
-        console.log('Attempting to load CSV from:', './master_lr4_practice.csv');
         Papa.parse('./master_lr4_practice.csv', {
             download: true,
             header: true,
             skipEmptyLines: true,
             complete: function(results) {
-                console.log('CSV loaded successfully:', results.data.length, 'rows');
                 const processedData = processWeightData(results.data);
-                console.log('Processed data:', processedData.length, 'data points');
                 createChart(processedData);
             },
             error: function(error) {
-                console.error('Error loading CSV:', error);
-                console.log('CSV loading failed, using fallback sample data');
                 // Fallback to sample data if CSV fails to load
                 const sampleData = [
                     { date: '2024-04-22', weight: 8.2 },
