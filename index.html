@@ -3,200 +3,479 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Average Weight</title>
+    <title>Litter Robot Dash</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: Arial, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
             background-color: #f5f5f5;
+            height: 100vh;
+            overflow: hidden;
         }
-        .container {
+        
+        .dashboard-container {
             background: white;
-            padding: 30px;
+            margin: 10px auto;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: calc(100vh - 20px);
+            width: 75%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
         }
-        h1 {
+        
+        .main-title {
             text-align: center;
             color: #333;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            font-size: 24px;
         }
-        .chart-container {
+        
+        .charts-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            min-height: 0;
+        }
+        
+        .chart-wrapper {
             position: relative;
-            height: 400px;
-            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            flex: 1;
+            min-height: 0;
+        }
+        
+        .chart-wrapper canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+            
+            .dashboard-container {
+                margin: 5px;
+                padding: 15px;
+                height: calc(100vh - 10px);
+            }
+            
+            .charts-container {
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            
+            .dashboard-container {
+                padding: 10px;
+            }
+            
+            .charts-container {
+                gap: 15px;
+            }
+            
+            .chart-wrapper {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Daily Average Weight</h1>
-        <div class="chart-container">
-            <canvas id="weightChart"></canvas>
+    <div class="dashboard-container">
+        <h1 class="main-title">Bruno & Murano 3 Month Trends</h1>
+        
+        <div class="charts-container">
+            <div class="chart-wrapper">
+                <canvas id="weightChart"></canvas>
+            </div>
+            
+            <div class="chart-wrapper">
+                <canvas id="usageChart"></canvas>
+            </div>
         </div>
     </div>
 
     <script>
-        // Function to process CSV data similar to your Python code
-        function processWeightData(csvData) {
-            // Filter for 'Weight Recorded' activity and valid weight range
-            const weightData = csvData.filter(row => {
-                const activity = row.Activity;
-                const value = parseFloat(row.Value);
-                const isValid = activity === 'Weight Recorded' && value >= 7.5 && value <= 9.5;
-                return isValid;
-            });
+        // Configuration constants
+        const CONFIG = {
+            WEIGHT_FILTER: {
+                ACTIVITY_TYPE: 'Weight Recorded',
+                MIN_VALUE: 7.5,
+                MAX_VALUE: 9.5
+            },
+            USAGE_FILTER: {
+                ACTIVITY_TYPE: 'Clean Cycle In Progress'
+            },
+            DATE_RANGE: {
+                DAYS_BACK: 90
+            },
+            CHART_STYLES: {
+                WEIGHT: {
+                    BORDER_COLOR: 'rgb(75, 192, 192)',
+                    BACKGROUND_COLOR: 'rgba(75, 192, 192, 0.2)'
+                },
+                USAGE: {
+                    BORDER_COLOR: 'rgb(255, 99, 132)',
+                    BACKGROUND_COLOR: 'rgba(255, 99, 132, 0.2)'
+                }
+            }
+        };
 
-            // Filter for last 90 days - using more robust date parsing
-            const today = new Date();
-            today.setHours(23, 59, 59, 999); // End of today
-            const ninetyDaysAgo = new Date(today);
-            ninetyDaysAgo.setDate(today.getDate() - 90);
-            ninetyDaysAgo.setHours(0, 0, 0, 0); // Start of day 90 days ago
-
-            const recentData = weightData.filter(row => {
-                // Try to parse the DateTime more robustly
-                let rowDate = new Date(row.DateTime);
+        // Utility functions for date handling
+        const DateUtils = {
+            parseDateTime: function(dateTimeString) {
+                let parsedDate = new Date(dateTimeString);
                 
-                // If the date is invalid, try different parsing approaches
-                if (isNaN(rowDate.getTime())) {
-                    // Try parsing as ISO string or other common formats
-                    const dateStr = row.DateTime.replace(' ', 'T'); // Convert space to T for ISO format
-                    rowDate = new Date(dateStr);
+                if (isNaN(parsedDate.getTime())) {
+                    const isoFormattedString = dateTimeString.replace(' ', 'T');
+                    parsedDate = new Date(isoFormattedString);
                 }
                 
-                const isInRange = rowDate >= ninetyDaysAgo && rowDate <= today;
-                return isInRange;
-            });
+                return parsedDate;
+            },
 
-            // Group by date and calculate daily averages
-            const dailyGroups = {};
+            createLocalDateOnly: function(date) {
+                return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+            },
+
+            formatDateAsString: function(date) {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            },
+
+            getDateRangeForFiltering: function(daysBack) {
+                const endDate = new Date();
+                endDate.setHours(23, 59, 59, 999);
+                
+                const startDate = new Date(endDate);
+                startDate.setDate(endDate.getDate() - daysBack);
+                startDate.setHours(0, 0, 0, 0);
+                
+                return { startDate, endDate };
+            },
+
+            isDateInRange: function(dateToCheck, startDate, endDate) {
+                const localDateToCheck = this.createLocalDateOnly(dateToCheck);
+                const localStartDate = this.createLocalDateOnly(startDate);
+                const localEndDate = this.createLocalDateOnly(endDate);
+                
+                return localDateToCheck >= localStartDate && localDateToCheck <= localEndDate;
+            }
+        };
+
+        // Data processing functions
+        const DataProcessor = {
+            filterWeightRecords: function(csvData) {
+                return csvData.filter(row => {
+                    const activityMatches = row.Activity === CONFIG.WEIGHT_FILTER.ACTIVITY_TYPE;
+                    const weightValue = parseFloat(row.Value);
+                    const valueInRange = weightValue >= CONFIG.WEIGHT_FILTER.MIN_VALUE && 
+                                       weightValue <= CONFIG.WEIGHT_FILTER.MAX_VALUE;
+                    
+                    return activityMatches && valueInRange;
+                });
+            },
+
+            filterUsageRecords: function(csvData) {
+                return csvData.filter(row => {
+                    return row.Activity === CONFIG.USAGE_FILTER.ACTIVITY_TYPE;
+                });
+            },
+
+            filterRecordsByDateRange: function(records, daysBack) {
+                const { startDate, endDate } = DateUtils.getDateRangeForFiltering(daysBack);
+                
+                return records.filter(row => {
+                    const recordDate = DateUtils.parseDateTime(row.DateTime);
+                    return DateUtils.isDateInRange(recordDate, startDate, endDate);
+                });
+            },
+
+            groupWeightRecordsByDate: function(records) {
+                const groupedByDate = {};
+                
+                records.forEach(row => {
+                    const recordDate = DateUtils.parseDateTime(row.DateTime);
+                    const dateKey = DateUtils.formatDateAsString(recordDate);
+                    const weightValue = parseFloat(row.Value);
+                    
+                    if (!groupedByDate[dateKey]) {
+                        groupedByDate[dateKey] = [];
+                    }
+                    groupedByDate[dateKey].push(weightValue);
+                });
+                
+                return groupedByDate;
+            },
+
+            groupUsageRecordsByDate: function(records) {
+                const groupedByDate = {};
+                
+                records.forEach(row => {
+                    const recordDate = DateUtils.parseDateTime(row.DateTime);
+                    const dateKey = DateUtils.formatDateAsString(recordDate);
+                    
+                    if (!groupedByDate[dateKey]) {
+                        groupedByDate[dateKey] = 0;
+                    }
+                    groupedByDate[dateKey]++;
+                });
+                
+                return groupedByDate;
+            },
+
+            calculateDailyWeightAverages: function(groupedData) {
+                const chartData = [];
+                
+                Object.keys(groupedData).forEach(date => {
+                    const dailyWeights = groupedData[date];
+                    const averageWeight = dailyWeights.reduce((sum, weight) => sum + weight, 0) / dailyWeights.length;
+                    chartData.push({ date: date, weight: averageWeight });
+                });
+                
+                return this.sortChartDataByDate(chartData);
+            },
+
+            calculateDailyUsageCounts: function(groupedData) {
+                const chartData = [];
+                
+                Object.keys(groupedData).forEach(date => {
+                    const usageCount = groupedData[date];
+                    chartData.push({ date: date, count: usageCount });
+                });
+                
+                return this.sortChartDataByDate(chartData);
+            },
+
+            sortChartDataByDate: function(chartData) {
+                return chartData.sort((a, b) => new Date(a.date) - new Date(b.date));
+            }
+        };
+
+        // Main data processing pipeline functions
+        function processWeightDataForChart(csvData) {
+            const weightRecords = DataProcessor.filterWeightRecords(csvData);
+            const recentWeightRecords = DataProcessor.filterRecordsByDateRange(weightRecords, CONFIG.DATE_RANGE.DAYS_BACK);
+            const groupedWeightData = DataProcessor.groupWeightRecordsByDate(recentWeightRecords);
             
-            recentData.forEach(row => {
-                let rowDate = new Date(row.DateTime);
-                if (isNaN(rowDate.getTime())) {
-                    const dateStr = row.DateTime.replace(' ', 'T');
-                    rowDate = new Date(dateStr);
-                }
-                
-                const date = rowDate.toISOString().split('T')[0]; // Get just the date part (YYYY-MM-DD)
-                const value = parseFloat(row.Value);
-                
-                if (!dailyGroups[date]) {
-                    dailyGroups[date] = [];
-                }
-                dailyGroups[date].push(value);
-            });
-
-            // Calculate averages and prepare chart data
-            const chartData = [];
-            Object.keys(dailyGroups).forEach(date => {
-                const values = dailyGroups[date];
-                const average = values.reduce((sum, val) => sum + val, 0) / values.length;
-                chartData.push({ date: date, weight: average });
-            });
-
-            // Sort by date
-            chartData.sort((a, b) => new Date(a.date) - new Date(b.date));
-            
-            return chartData;
+            return DataProcessor.calculateDailyWeightAverages(groupedWeightData);
         }
 
-        // Function to create the chart
-        function createChart(processedData) {
-            const dates = processedData.map(item => item.date);
-            const weights = processedData.map(item => item.weight);
+        function processUsageDataForChart(csvData) {
+            const usageRecords = DataProcessor.filterUsageRecords(csvData);
+            const recentUsageRecords = DataProcessor.filterRecordsByDateRange(usageRecords, CONFIG.DATE_RANGE.DAYS_BACK);
+            const groupedUsageData = DataProcessor.groupUsageRecordsByDate(recentUsageRecords);
+            
+            return DataProcessor.calculateDailyUsageCounts(groupedUsageData);
+        }
 
-            const ctx = document.getElementById('weightChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: dates,
-                    datasets: [{
-                        label: 'Average Weight',
-                        data: weights,
-                        borderColor: 'rgb(75, 192, 192)',
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderWidth: 2,
-                        pointRadius: 4,
-                        pointHoverRadius: 6,
-                        tension: 0.1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Daily Average Weight',
-                            font: {
-                                size: 16,
-                                weight: 'bold'
+        // Chart creation functions
+        const ChartBuilder = {
+            createBaseChartConfig: function(chartData, dataKey, label, colors) {
+                const dates = chartData.map(item => item.date);
+                const values = chartData.map(item => item[dataKey]);
+                
+                return {
+                    type: 'line',
+                    data: {
+                        labels: dates,
+                        datasets: [{
+                            label: label,
+                            data: values,
+                            borderColor: colors.BORDER_COLOR,
+                            backgroundColor: colors.BACKGROUND_COLOR,
+                            borderWidth: 2,
+                            pointRadius: 4,
+                            pointHoverRadius: 6,
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
                             }
                         },
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `Average Weight: ${context.parsed.y.toFixed(2)}`;
+                        scales: {
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Date'
+                                },
+                                ticks: {
+                                    maxRotation: 90,
+                                    minRotation: 90
+                                },
+                                grid: {
+                                    display: false
                                 }
                             }
                         }
-                    },
-                    scales: {
-                        y: {
-                            min: 7.5,
-                            max: 9.5,
-                            title: {
-                                display: true,
-                                text: 'Average Weight'
-                            },
-                            grid: {
-                                color: 'rgba(0, 0, 0, 0.1)'
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Date'
-                            },
-                            ticks: {
-                                maxRotation: 90,
-                                minRotation: 90
-                            }
+                    }
+                };
+            },
+
+            addWeightChartSpecificOptions: function(baseConfig) {
+                baseConfig.options.plugins.title = {
+                    display: true,
+                    text: 'Daily Average Weight',
+                    font: {
+                        size: 16,
+                        weight: 'bold'
+                    }
+                };
+                
+                baseConfig.options.plugins.tooltip = {
+                    callbacks: {
+                        label: function(context) {
+                            return `Average Weight: ${context.parsed.y.toFixed(2)}`;
                         }
                     }
-                }
-            });
+                };
+                
+                baseConfig.options.scales.y = {
+                    min: 7.5,
+                    max: 9.5,
+                    title: {
+                        display: true,
+                        text: 'Average Weight'
+                    },
+                    grid: {
+                        display: false
+                    }
+                };
+                
+                return baseConfig;
+            },
+
+            addUsageChartSpecificOptions: function(baseConfig) {
+                baseConfig.options.plugins.title = {
+                    display: true,
+                    text: 'Daily Usage Frequency',
+                    font: {
+                        size: 16,
+                        weight: 'bold'
+                    }
+                };
+                
+                baseConfig.options.plugins.tooltip = {
+                    callbacks: {
+                        label: function(context) {
+                            return `Total Number of Visits: ${context.parsed.y}`;
+                        }
+                    }
+                };
+                
+                baseConfig.options.scales.y = {
+                    min: 0,
+                    max: 12,
+                    title: {
+                        display: true,
+                        text: 'Total Number of Visits'
+                    },
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        stepSize: 1
+                    }
+                };
+                
+                return baseConfig;
+            }
+        };
+
+        function createWeightChart(chartData) {
+            const canvasContext = document.getElementById('weightChart').getContext('2d');
+            const baseConfig = ChartBuilder.createBaseChartConfig(
+                chartData, 
+                'weight', 
+                'Average Weight', 
+                CONFIG.CHART_STYLES.WEIGHT
+            );
+            const finalConfig = ChartBuilder.addWeightChartSpecificOptions(baseConfig);
+            
+            new Chart(canvasContext, finalConfig);
         }
 
-        // Load and parse the CSV file
-        Papa.parse('./master_lr4_practice.csv', {
-            download: true,
-            header: true,
-            skipEmptyLines: true,
-            complete: function(results) {
-                const processedData = processWeightData(results.data);
-                createChart(processedData);
-            },
-            error: function(error) {
-                // Fallback to sample data if CSV fails to load
-                const sampleData = [
+        function createUsageChart(chartData) {
+            const canvasContext = document.getElementById('usageChart').getContext('2d');
+            const baseConfig = ChartBuilder.createBaseChartConfig(
+                chartData, 
+                'count', 
+                'Number of Visits', 
+                CONFIG.CHART_STYLES.USAGE
+            );
+            const finalConfig = ChartBuilder.addUsageChartSpecificOptions(baseConfig);
+            
+            new Chart(canvasContext, finalConfig);
+        }
+
+        // Sample data for fallback scenarios
+        function getSampleData() {
+            return {
+                weight: [
                     { date: '2024-04-22', weight: 8.2 },
                     { date: '2024-04-23', weight: 8.1 },
                     { date: '2024-04-24', weight: 8.3 },
                     { date: '2024-05-05', weight: 8.1 }
-                ];
-                createChart(sampleData);
-            }
-        });
+                ],
+                usage: [
+                    { date: '2024-04-22', count: 3 },
+                    { date: '2024-04-23', count: 2 },
+                    { date: '2024-04-24', count: 4 },
+                    { date: '2024-05-05', count: 1 }
+                ]
+            };
+        }
+
+        // Main application logic
+        function initializeDashboard() {
+            Papa.parse('./master_lr4_practice.csv', {
+                download: true,
+                header: true,
+                skipEmptyLines: true,
+                complete: function(parseResults) {
+                    const weightChartData = processWeightDataForChart(parseResults.data);
+                    const usageChartData = processUsageDataForChart(parseResults.data);
+                    
+                    createWeightChart(weightChartData);
+                    createUsageChart(usageChartData);
+                },
+                error: function(parseError) {
+                    const sampleData = getSampleData();
+                    createWeightChart(sampleData.weight);
+                    createUsageChart(sampleData.usage);
+                }
+            });
+        }
+
+        // Initialize the dashboard when the page loads
+        initializeDashboard();
     </script>
 </body>
 </html>
