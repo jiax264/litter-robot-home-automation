@@ -380,7 +380,7 @@ class LitterRobotMonitor:
         """Load test data from CSV file instead of API."""
         # Read existing CSV
         df = pd.read_csv(Config.CSV_OUTPUT_FILE)
-        df["DateTime"] = pd.to_datetime(df["DateTime"])
+        df["DateTime"] = pd.to_datetime(df["DateTime"], utc=True).dt.tz_convert(Config.TIMEZONE)
         
         # Set a high waste percentage to trigger waste alert
         waste_percent = 80  # This will trigger the waste alert (>= 75%)
