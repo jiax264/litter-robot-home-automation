@@ -5355,3 +5355,10 @@ DateTime,Activity,Value
 2025-07-21 23:31:00-04:00,Weight Recorded,8.0
 2025-07-21 23:43:00-04:00,Clean Cycle In Progress,
 2025-07-21 23:45:00-04:00,Clean Cycle Complete,
+2025-07-21 23:50:00-04:00,Cat Detected,
+2025-07-21 23:51:00-04:00,Weight Recorded,8.3
+2025-07-21 23:52:00-04:00,Weight Recorded,8.2
+2025-07-21 23:53:00-04:00,Weight Recorded,8.1
+2025-07-21 23:54:00-04:00,Cat Detected,
+2025-07-22 00:08:00-04:00,Clean Cycle In Progress,
+2025-07-22 00:10:00-04:00,Clean Cycle Complete,
