@@ -11,6 +11,7 @@ import smtplib
 from email.mime.text import MIMEText
 import sys
 import requests
+from datetime import timedelta
 
 
 class Config:
@@ -42,6 +43,11 @@ class Config:
 
     # File paths
     CSV_OUTPUT_FILE = "master_lr4_practice.csv"
+    
+    # Cycle timing thresholds
+    CYCLE_DELAY = 7  # minutes
+    USAGE_DURATION = 5  # minutes
+    CONSECUTIVE_WEIGHT_THRESHOLD = 3  # number of consecutive weight recordings
 
 
 class LitterRobotMonitor:
@@ -98,6 +104,119 @@ class LitterRobotMonitor:
         mask = values.notna()
         df.loc[mask, "Activity"] = activity_name
         df.loc[mask, "Value"] = values[mask].astype(dtype)
+
+    def _check_cycle_delays(self, df: pd.DataFrame) -> bool:
+        """Check if there are delays > CYCLE_DELAY + USAGE_DURATION between Weight Recorded and Clean Cycle."""
+        # Sort by DateTime to ensure proper sequence
+        df_sorted = df.sort_values('DateTime').reset_index(drop=True)
+        
+        # Get Weight Recorded activities
+        weight_recorded = df_sorted[df_sorted['Activity'] == 'Weight Recorded']
+        
+        # Group consecutive Weight Recorded events and take the last one from each group
+        weight_groups = []
+        current_group = []
+        
+        for _, weight_row in weight_recorded.iterrows():
+            weight_time = weight_row['DateTime']
+            
+            # Check if there are any non-Weight-Recorded activities between 
+            # the last weight in current group and this weight
+            if current_group:
+                last_weight_time = current_group[-1]['DateTime']
+                activities_between = df_sorted[
+                    (df_sorted['DateTime'] > last_weight_time) & 
+                    (df_sorted['DateTime'] < weight_time) &
+                    (df_sorted['Activity'] != 'Weight Recorded')
+                ]
+                
+                # If there are other activities between, start a new group
+                if len(activities_between) > 0:
+                    weight_groups.append(current_group)
+                    current_group = [weight_row]
+                else:
+                    current_group.append(weight_row)
+            else:
+                current_group = [weight_row]
+        
+        # Don't forget the last group
+        if current_group:
+            weight_groups.append(current_group)
+        
+        # Check each group's last Weight Recorded to next Clean Cycle timing
+        threshold_minutes = Config.CYCLE_DELAY + Config.USAGE_DURATION
+        
+        for weight_group in weight_groups:
+            # Get the last Weight Recorded in this consecutive group
+            last_weight = weight_group[-1]
+            weight_time = last_weight['DateTime']
+            
+            # Find Clean Cycle In Progress activities after this Weight Recorded
+            subsequent_clean = df_sorted[
+                (df_sorted['DateTime'] > weight_time) & 
+                (df_sorted['Activity'] == 'Clean Cycle In Progress')
+            ]
+            
+            if len(subsequent_clean) > 0:
+                # Get the earliest Clean Cycle In Progress after this Weight Recorded
+                next_clean_time = subsequent_clean['DateTime'].iloc[0]
+                
+                # Calculate time difference
+                time_diff = next_clean_time - weight_time
+                
+                # Check if difference exceeds threshold
+                if time_diff > timedelta(minutes=threshold_minutes):
+                    return True
+        
+        return False
+
+    def _check_consecutive_weights(self, df: pd.DataFrame) -> bool:
+        """Check if there are CONSECUTIVE_WEIGHT_THRESHOLD or more consecutive Weight Recorded events."""
+        # Sort by DateTime to ensure proper sequence
+        df_sorted = df.sort_values('DateTime').reset_index(drop=True)
+        
+        # Get Weight Recorded activities
+        weight_recorded = df_sorted[df_sorted['Activity'] == 'Weight Recorded']
+        
+        if len(weight_recorded) < Config.CONSECUTIVE_WEIGHT_THRESHOLD:
+            return False
+        
+        # Group consecutive Weight Recorded events
+        weight_groups = []
+        current_group = []
+        
+        for _, weight_row in weight_recorded.iterrows():
+            weight_time = weight_row['DateTime']
+            
+            # Check if there are any non-Weight-Recorded activities between 
+            # the last weight in current group and this weight
+            if current_group:
+                last_weight_time = current_group[-1]['DateTime']
+                activities_between = df_sorted[
+                    (df_sorted['DateTime'] > last_weight_time) & 
+                    (df_sorted['DateTime'] < weight_time) &
+                    (df_sorted['Activity'] != 'Weight Recorded')
+                ]
+                
+                # If there are other activities between, start a new group
+                if len(activities_between) > 0:
+                    weight_groups.append(current_group)
+                    current_group = [weight_row]
+                else:
+                    current_group.append(weight_row)
+            else:
+                current_group = [weight_row]
+        
+        # Don't forget the last group
+        if current_group:
+            weight_groups.append(current_group)
+        
+        # Check if any group has CONSECUTIVE_WEIGHT_THRESHOLD or more consecutive Weight Recorded events
+        for weight_group in weight_groups:
+            if len(weight_group) >= Config.CONSECUTIVE_WEIGHT_THRESHOLD:
+                return True
+        
+        return False
 
     async def main(self) -> None:
         try:
@@ -180,6 +299,14 @@ class LitterRobotMonitor:
                     msg_parts.append(
                         f"Avg Weight yesterday = {avg_weight:.1f} lbs. Please investigate."
                     )
+
+        # Check for cycle delays
+        if self._check_cycle_delays(df):
+            msg_parts.append(f">{Config.USAGE_DURATION} min usage duration yesterday.")
+
+        # Check for consecutive weight recordings
+        if self._check_consecutive_weights(df):
+            msg_parts.append(f"Cat(s) entered {Config.CONSECUTIVE_WEIGHT_THRESHOLD}+ times before cycling yesterday.")
 
         if msg_parts:
             self.send_slack_message("\n".join(msg_parts))
