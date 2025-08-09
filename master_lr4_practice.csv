@@ -5918,3 +5918,47 @@ DateTime,Activity,Value
 2025-08-07 21:44:45-04:00,Clean Cycles,1055
 2025-08-07 21:44:45-04:00,Clean Cycle In Progress,
 2025-08-07 21:46:55-04:00,Clean Cycle Complete,
+2025-08-08 00:50:22-04:00,Cat Detected,
+2025-08-08 00:52:37-04:00,Weight Recorded,8.73
+2025-08-08 01:04:53-04:00,Clean Cycles,1056
+2025-08-08 01:04:53-04:00,Clean Cycle In Progress,
+2025-08-08 01:05:29-04:00,Cycle Interrupted,
+2025-08-08 01:05:58-04:00,Cycle Interrupted,
+2025-08-08 01:06:27-04:00,Cycle Interrupted,
+2025-08-08 01:08:34-04:00,Clean Cycle Complete,
+2025-08-08 05:35:04-04:00,Cat Detected,
+2025-08-08 05:35:52-04:00,Weight Recorded,9.06
+2025-08-08 05:42:51-04:00,Clean Cycle In Progress,
+2025-08-08 05:42:51-04:00,Clean Cycles,1057
+2025-08-08 05:43:38-04:00,Cycle Interrupted,
+2025-08-08 05:45:19-04:00,Cycle Interrupted,
+2025-08-08 05:49:19-04:00,Clean Cycle Complete,
+2025-08-08 07:33:35-04:00,Clean Cycles,1058
+2025-08-08 07:33:35-04:00,Clean Cycle In Progress,
+2025-08-08 07:35:44-04:00,Clean Cycle Complete,
+2025-08-08 09:35:34-04:00,Cat Detected,
+2025-08-08 09:36:15-04:00,Weight Recorded,8.78
+2025-08-08 09:43:14-04:00,Clean Cycles,1059
+2025-08-08 09:43:15-04:00,Clean Cycle In Progress,
+2025-08-08 09:44:20-04:00,LitterBoxStatus.DRAWER_FULL,
+2025-08-08 09:44:49-04:00,Cycle Interrupted,
+2025-08-08 09:45:24-04:00,Cycle Interrupted,
+2025-08-08 09:46:18-04:00,Clean Cycle Complete,
+2025-08-08 17:55:07-04:00,Cat Detected,
+2025-08-08 17:55:58-04:00,Weight Recorded,9.11
+2025-08-08 18:02:57-04:00,Clean Cycle In Progress,
+2025-08-08 18:02:57-04:00,Clean Cycles,1060
+2025-08-08 18:04:03-04:00,LitterBoxStatus.DRAWER_FULL,
+2025-08-08 18:05:07-04:00,Clean Cycle Complete,
+2025-08-08 20:54:36-04:00,Cat Detected,
+2025-08-08 20:55:08-04:00,Weight Recorded,8.78
+2025-08-08 21:02:08-04:00,Clean Cycles,1061
+2025-08-08 21:02:08-04:00,Clean Cycle In Progress,
+2025-08-08 21:03:14-04:00,LitterBoxStatus.DRAWER_FULL,
+2025-08-08 21:04:17-04:00,Clean Cycle Complete,
+2025-08-08 21:32:20-04:00,Cat Detected,
+2025-08-08 21:34:12-04:00,Weight Recorded,9.11
+2025-08-08 21:41:59-04:00,Clean Cycle In Progress,
+2025-08-08 21:41:59-04:00,Clean Cycles,1062
+2025-08-08 21:42:58-04:00,Cycle Interrupted,
+2025-08-08 21:44:31-04:00,Clean Cycle Complete,
