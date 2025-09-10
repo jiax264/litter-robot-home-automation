@@ -21,7 +21,7 @@ class Config:
 
     # Weight thresholds (in pounds)
     MIN_HEALTHY_WEIGHT = 8.5
-    MAX_HEALTHY_WEIGHT = 9.1
+    MAX_HEALTHY_WEIGHT = 9.3
     MIN_VALID_WEIGHT = 7.5
     MAX_VALID_WEIGHT = 10.5
 
