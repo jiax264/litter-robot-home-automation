@@ -23,7 +23,7 @@ class Config:
     MIN_HEALTHY_WEIGHT = 8.5
     MAX_HEALTHY_WEIGHT = 9.1
     MIN_VALID_WEIGHT = 7.5
-    MAX_VALID_WEIGHT = 9.5
+    MAX_VALID_WEIGHT = 10.5
 
     # Waste level threshold (percentage)
     WASTE_ALERT_THRESHOLD = 75
