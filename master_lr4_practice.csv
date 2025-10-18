@@ -8259,3 +8259,34 @@ DateTime,Activity,Value
 2025-10-16 20:55:55-04:00,Clean Cycle In Progress,
 2025-10-16 20:55:55-04:00,Clean Cycles,1504
 2025-10-16 20:58:14-04:00,Clean Cycle Complete,
+2025-10-17 01:14:53-04:00,Cat Detected,
+2025-10-17 01:15:21-04:00,Weight Recorded,5.92
+2025-10-17 01:22:19-04:00,Clean Cycles,1505
+2025-10-17 01:22:19-04:00,Clean Cycle In Progress,
+2025-10-17 01:23:27-04:00,LitterBoxStatus.DRAWER_FULL,
+2025-10-17 01:24:31-04:00,Clean Cycle Complete,
+2025-10-17 06:19:33-04:00,Cat Detected,
+2025-10-17 06:21:26-04:00,Weight Recorded,8.9
+2025-10-17 06:25:04-04:00,Weight Recorded,9.41
+2025-10-17 06:32:37-04:00,Weight Recorded,9.23
+2025-10-17 06:39:36-04:00,Clean Cycles,1506
+2025-10-17 06:39:36-04:00,Clean Cycle In Progress,
+2025-10-17 06:40:36-04:00,Cycle Interrupted,
+2025-10-17 06:42:40-04:00,Clean Cycle Complete,
+2025-10-17 13:49:07-04:00,Cat Detected,
+2025-10-17 13:49:34-04:00,Weight Recorded,4.45
+2025-10-17 15:11:06-04:00,Cat Detected,
+2025-10-17 15:11:44-04:00,Weight Recorded,8.81
+2025-10-17 15:18:44-04:00,Clean Cycles,1507
+2025-10-17 15:18:44-04:00,Clean Cycle In Progress,
+2025-10-17 15:20:59-04:00,Clean Cycle Complete,
+2025-10-17 16:58:26-04:00,Cat Detected,
+2025-10-17 16:59:15-04:00,Weight Recorded,9.23
+2025-10-17 17:06:47-04:00,Clean Cycle In Progress,
+2025-10-17 17:06:47-04:00,Clean Cycles,1508
+2025-10-17 17:09:01-04:00,Clean Cycle Complete,
+2025-10-17 22:39:23-04:00,Cat Detected,
+2025-10-17 22:40:23-04:00,Weight Recorded,9.3
+2025-10-17 22:47:22-04:00,Clean Cycles,1509
+2025-10-17 22:47:22-04:00,Clean Cycle In Progress,
+2025-10-17 22:49:36-04:00,Clean Cycle Complete,
