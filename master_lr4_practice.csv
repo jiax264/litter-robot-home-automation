@@ -10131,3 +10131,36 @@ DateTime,Activity,Value
 2025-12-10 17:01:46-05:00,Weight Recorded,10.66
 2025-12-10 20:29:24-05:00,Weight Recorded,10.13
 2025-12-10 21:41:05-05:00,Weight Recorded,8.71
+2025-12-11 00:29:45-05:00,Weight Recorded,10.77
+2025-12-11 06:17:22-05:00,Weight Recorded,9.77
+2025-12-11 06:23:14-05:00,Weight Recorded,10.24
+2025-12-11 06:26:48-05:00,Weight Recorded,9.36
+2025-12-11 06:27:27-05:00,Weight Recorded,9.29
+2025-12-11 06:28:11-05:00,Weight Recorded,9.31
+2025-12-11 06:29:27-05:00,Weight Recorded,9.27
+2025-12-11 07:18:42-05:00,Weight Recorded,9.49
+2025-12-11 07:28:42-05:00,Weight Recorded,9.74
+2025-12-11 08:09:40-05:00,Clean Cycles,1849
+2025-12-11 08:09:40-05:00,Clean Cycle In Progress,
+2025-12-11 08:10:08-05:00,Cycle Interrupted,
+2025-12-11 09:46:57-05:00,Clean Cycles,1850
+2025-12-11 09:46:57-05:00,Clean Cycle In Progress,
+2025-12-11 09:47:35-05:00,LitterBoxStatus.DRAWER_FULL,
+2025-12-11 09:48:41-05:00,Clean Cycle Complete,
+2025-12-11 12:37:39-05:00,Weight Recorded,9.6
+2025-12-11 15:30:45-05:00,Weight Recorded,8.2
+2025-12-11 15:42:50-05:00,Weight Recorded,8.97
+2025-12-11 17:35:46-05:00,Weight Recorded,10.96
+2025-12-11 18:00:54-05:00,Clean Cycles,1851
+2025-12-11 18:00:54-05:00,Clean Cycle In Progress,
+2025-12-11 18:02:00-05:00,LitterBoxStatus.DRAWER_FULL,
+2025-12-11 18:03:04-05:00,Clean Cycle Complete,
+2025-12-11 18:09:50-05:00,Clean Cycle In Progress,
+2025-12-11 18:09:50-05:00,Clean Cycles,1852
+2025-12-11 18:12:00-05:00,Clean Cycle Complete,
+2025-12-11 22:27:54-05:00,Cat Detected,
+2025-12-11 22:28:33-05:00,Weight Recorded,9.0
+2025-12-11 22:35:35-05:00,Clean Cycle In Progress,
+2025-12-11 22:35:35-05:00,Clean Cycles,1853
+2025-12-11 22:36:33-05:00,Cycle Interrupted,
+2025-12-11 22:38:16-05:00,Clean Cycle Complete,
