@@ -10562,3 +10562,62 @@ DateTime,Activity,Value
 2025-12-21 22:39:20-05:00,Clean Cycle In Progress,
 2025-12-21 22:39:20-05:00,Clean Cycles,1928
 2025-12-21 22:41:31-05:00,Clean Cycle Complete,
+2025-12-22 05:32:22-05:00,Cat Detected,
+2025-12-22 05:33:36-05:00,Weight Recorded,9.26
+2025-12-22 05:40:37-05:00,Clean Cycles,1929
+2025-12-22 05:40:37-05:00,Clean Cycle In Progress,
+2025-12-22 05:41:43-05:00,LitterBoxStatus.DRAWER_FULL,
+2025-12-22 05:42:41-05:00,Litter Dispensed: 94,
+2025-12-22 05:43:04-05:00,Clean Cycle Complete,
+2025-12-22 05:43:38-05:00,Cat Detected,
+2025-12-22 05:43:45-05:00,Weight Recorded,2.92
+2025-12-22 05:50:46-05:00,Clean Cycles,1930
+2025-12-22 05:50:46-05:00,Clean Cycle In Progress,
+2025-12-22 05:51:53-05:00,LitterBoxStatus.DRAWER_FULL,
+2025-12-22 05:52:59-05:00,Clean Cycle Complete,
+2025-12-22 06:07:49-05:00,Cat Detected,
+2025-12-22 06:08:49-05:00,Weight Recorded,9.2
+2025-12-22 06:15:50-05:00,Clean Cycle In Progress,
+2025-12-22 06:15:50-05:00,Clean Cycles,1931
+2025-12-22 06:16:57-05:00,LitterBoxStatus.DRAWER_FULL,
+2025-12-22 06:18:03-05:00,Clean Cycle Complete,
+2025-12-22 09:19:01-05:00,Cat Detected,
+2025-12-22 09:21:24-05:00,Weight Recorded,9.46
+2025-12-22 09:28:25-05:00,Clean Cycle In Progress,
+2025-12-22 09:28:25-05:00,Clean Cycles,1932
+2025-12-22 09:29:13-05:00,Cycle Interrupted,
+2025-12-22 09:30:03-05:00,Cycle Interrupted,
+2025-12-22 09:30:45-05:00,Cycle Interrupted,
+2025-12-22 09:32:46-05:00,Clean Cycle Complete,
+2025-12-22 12:04:01-05:00,Cat Detected,
+2025-12-22 12:05:18-05:00,Weight Recorded,9.51
+2025-12-22 12:12:19-05:00,Clean Cycles,1933
+2025-12-22 12:12:20-05:00,Clean Cycle In Progress,
+2025-12-22 12:14:32-05:00,Clean Cycle Complete,
+2025-12-22 17:00:48-05:00,LitterBoxStatus.BONNET_REMOVED,
+2025-12-22 17:01:27-05:00,LitterBoxStatus.BONNET_REMOVED,
+2025-12-22 17:08:04-05:00,Cycle Interrupted,
+2025-12-22 17:09:06-05:00,Clean Cycle Complete,
+2025-12-22 17:15:43-05:00,Cat Detected,
+2025-12-22 17:22:50-05:00,Clean Cycle In Progress,
+2025-12-22 17:22:50-05:00,Clean Cycles,1934
+2025-12-22 17:25:00-05:00,Clean Cycle Complete,
+2025-12-22 18:30:49-05:00,Cat Detected,
+2025-12-22 18:31:02-05:00,Weight Recorded,2.4
+2025-12-22 18:38:08-05:00,Clean Cycle In Progress,
+2025-12-22 18:38:08-05:00,Clean Cycles,1935
+2025-12-22 18:40:18-05:00,Clean Cycle Complete,
+2025-12-22 19:14:32-05:00,Cat Detected,
+2025-12-22 19:16:18-05:00,Weight Recorded,9.17
+2025-12-22 19:23:12-05:00,Weight Recorded,8.96
+2025-12-22 19:30:13-05:00,Clean Cycle In Progress,
+2025-12-22 19:30:13-05:00,Clean Cycles,1936
+2025-12-22 19:32:24-05:00,Clean Cycle Complete,
+2025-12-22 20:11:20-05:00,Cat Detected,
+2025-12-22 20:11:40-05:00,Weight Recorded,6.29
+2025-12-22 22:12:22-05:00,Cat Detected,
+2025-12-22 22:14:35-05:00,Weight Recorded,9.51
+2025-12-22 22:18:31-05:00,Weight Recorded,8.7
+2025-12-22 22:25:32-05:00,Clean Cycle In Progress,
+2025-12-22 22:25:32-05:00,Clean Cycles,1937
+2025-12-22 22:27:44-05:00,Clean Cycle Complete,
