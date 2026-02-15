@@ -12692,3 +12692,45 @@ DateTime,Activity,Value
 2026-02-13 12:49:47-05:00,Clean Cycle Complete,
 2026-02-13 13:27:50-05:00,Cat Detected,
 2026-02-13 13:28:37-05:00,Cat Detected,
+2026-02-14 01:03:38-05:00,Weight Recorded,14.48
+2026-02-14 06:06:04-05:00,Cat Detected,
+2026-02-14 06:07:39-05:00,Weight Recorded,15.14
+2026-02-14 06:14:11-05:00,Weight Recorded,9.36
+2026-02-14 06:21:12-05:00,Clean Cycles,2292
+2026-02-14 06:21:12-05:00,Clean Cycle In Progress,
+2026-02-14 06:22:10-05:00,Cycle Interrupted,
+2026-02-14 06:24:04-05:00,Clean Cycle Complete,
+2026-02-14 06:44:48-05:00,Cat Detected,
+2026-02-14 06:46:37-05:00,Weight Recorded,9.09
+2026-02-14 06:53:38-05:00,Clean Cycles,2293
+2026-02-14 06:53:38-05:00,Clean Cycle In Progress,
+2026-02-14 06:55:48-05:00,Litter Dispensed: 104,
+2026-02-14 06:56:02-05:00,Cycle Interrupted,
+2026-02-14 06:56:46-05:00,Clean Cycle Complete,
+2026-02-14 12:10:02-05:00,Cat Detected,
+2026-02-14 12:10:29-05:00,Weight Recorded,9.04
+2026-02-14 12:17:30-05:00,Clean Cycles,2294
+2026-02-14 12:17:31-05:00,Clean Cycle In Progress,
+2026-02-14 12:19:48-05:00,Clean Cycle Complete,
+2026-02-14 16:35:54-05:00,Cat Detected,
+2026-02-14 16:36:48-05:00,Weight Recorded,9.04
+2026-02-14 16:43:49-05:00,Clean Cycle In Progress,
+2026-02-14 16:43:49-05:00,Clean Cycles,2295
+2026-02-14 16:46:07-05:00,Clean Cycle Complete,
+2026-02-14 18:57:25-05:00,Cat Detected,
+2026-02-14 18:57:47-05:00,Weight Recorded,8.9
+2026-02-14 19:04:48-05:00,Clean Cycles,2296
+2026-02-14 19:04:48-05:00,Clean Cycle In Progress,
+2026-02-14 19:07:06-05:00,Clean Cycle Complete,
+2026-02-14 21:05:24-05:00,Cat Detected,
+2026-02-14 21:06:13-05:00,Weight Recorded,9.23
+2026-02-14 21:13:14-05:00,Clean Cycle In Progress,
+2026-02-14 21:13:14-05:00,Clean Cycles,2297
+2026-02-14 21:14:25-05:00,LitterBoxStatus.DRAWER_FULL,
+2026-02-14 21:15:32-05:00,Clean Cycle Complete,
+2026-02-14 21:25:22-05:00,Cat Detected,
+2026-02-14 21:25:49-05:00,Weight Recorded,9.03
+2026-02-14 21:33:10-05:00,Clean Cycles,2298
+2026-02-14 21:33:10-05:00,Clean Cycle In Progress,
+2026-02-14 21:34:21-05:00,LitterBoxStatus.DRAWER_FULL,
+2026-02-14 21:35:28-05:00,Clean Cycle Complete,
