@@ -12776,3 +12776,15 @@ DateTime,Activity,Value
 2026-02-16 09:11:08-05:00,LitterBoxStatus.DRAWER_FULL,
 2026-02-16 09:12:16-05:00,Clean Cycle Complete,
 2026-02-16 20:50:41-05:00,Weight Recorded,9.2
+2026-02-17 00:17:52-05:00,Weight Recorded,9.21
+2026-02-17 06:16:32-05:00,Weight Recorded,9.07
+2026-02-17 06:26:08-05:00,Weight Recorded,9.04
+2026-02-17 06:54:18-05:00,Weight Recorded,9.01
+2026-02-17 07:00:42-05:00,Weight Recorded,9.03
+2026-02-17 09:59:33-05:00,Clean Cycle In Progress,
+2026-02-17 09:59:33-05:00,Clean Cycles,2304
+2026-02-17 10:00:42-05:00,LitterBoxStatus.DRAWER_FULL,
+2026-02-17 10:01:49-05:00,Clean Cycle Complete,
+2026-02-17 10:44:51-05:00,Weight Recorded,9.31
+2026-02-17 12:49:31-05:00,Weight Recorded,9.06
+2026-02-17 19:42:45-05:00,Weight Recorded,9.3
