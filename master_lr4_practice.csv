@@ -12943,3 +12943,13 @@ DateTime,Activity,Value
 2026-02-21 12:54:45-05:00,LitterBoxStatus.DRAWER_FULL,
 2026-02-21 12:55:51-05:00,Clean Cycle Complete,
 2026-02-21 18:46:09-05:00,Cat Detected,
+2026-02-22 19:26:19-05:00,Clean Cycles,2329
+2026-02-22 19:26:20-05:00,Clean Cycle In Progress,
+2026-02-22 19:27:26-05:00,LitterBoxStatus.DRAWER_FULL,
+2026-02-22 19:28:32-05:00,Clean Cycle Complete,
+2026-02-22 20:20:27-05:00,Cat Detected,
+2026-02-22 20:21:39-05:00,Weight Recorded,9.23
+2026-02-22 20:28:40-05:00,Clean Cycle In Progress,
+2026-02-22 20:28:40-05:00,Clean Cycles,2330
+2026-02-22 20:29:47-05:00,LitterBoxStatus.DRAWER_FULL,
+2026-02-22 20:30:52-05:00,Clean Cycle Complete,
