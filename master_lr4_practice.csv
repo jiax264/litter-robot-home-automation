@@ -12953,3 +12953,35 @@ DateTime,Activity,Value
 2026-02-22 20:28:40-05:00,Clean Cycles,2330
 2026-02-22 20:29:47-05:00,LitterBoxStatus.DRAWER_FULL,
 2026-02-22 20:30:52-05:00,Clean Cycle Complete,
+2026-02-23 08:25:41-05:00,Cat Detected,
+2026-02-23 08:26:35-05:00,Weight Recorded,9.26
+2026-02-23 08:33:36-05:00,Clean Cycles,2331
+2026-02-23 08:33:36-05:00,Clean Cycle In Progress,
+2026-02-23 08:34:42-05:00,LitterBoxStatus.DRAWER_FULL,
+2026-02-23 08:35:48-05:00,Clean Cycle Complete,
+2026-02-23 08:41:41-05:00,Cat Detected,
+2026-02-23 08:43:04-05:00,Weight Recorded,8.83
+2026-02-23 08:50:05-05:00,Clean Cycle In Progress,
+2026-02-23 08:50:05-05:00,Clean Cycles,2332
+2026-02-23 08:51:12-05:00,LitterBoxStatus.DRAWER_FULL,
+2026-02-23 08:52:06-05:00,Litter Dispensed: 96,
+2026-02-23 08:52:29-05:00,Clean Cycle Complete,
+2026-02-23 12:23:11-05:00,Cat Detected,
+2026-02-23 12:24:20-05:00,Weight Recorded,8.87
+2026-02-23 12:31:21-05:00,Clean Cycles,2333
+2026-02-23 12:31:21-05:00,Clean Cycle In Progress,
+2026-02-23 12:32:29-05:00,LitterBoxStatus.DRAWER_FULL,
+2026-02-23 12:33:23-05:00,Litter Dispensed: 93,
+2026-02-23 12:33:45-05:00,Clean Cycle Complete,
+2026-02-23 12:53:53-05:00,Weight Recorded,8.97
+2026-02-23 14:23:50-05:00,Clean Cycles,2334
+2026-02-23 14:23:50-05:00,Clean Cycle In Progress,
+2026-02-23 14:24:59-05:00,LitterBoxStatus.DRAWER_FULL,
+2026-02-23 14:26:05-05:00,Clean Cycle Complete,
+2026-02-23 20:04:55-05:00,Weight Recorded,9.41
+2026-02-23 21:23:03-05:00,Clean Cycles,2335
+2026-02-23 21:23:03-05:00,Cat Detected,
+2026-02-23 21:23:04-05:00,Clean Cycle In Progress,
+2026-02-23 21:24:11-05:00,LitterBoxStatus.DRAWER_FULL,
+2026-02-23 21:25:16-05:00,Clean Cycle Complete,
+2026-02-23 22:22:43-05:00,Weight Recorded,8.87
