@@ -14320,3 +14320,12 @@ DateTime,Activity,Value
 2026-04-15 21:46:48-04:00,LitterBoxStatus.DRAWER_FULL,
 2026-04-15 21:47:45-04:00,Litter Dispensed: 86,
 2026-04-15 21:48:06-04:00,Clean Cycle Complete,
+2026-04-16 06:04:49-04:00,Cat Detected,
+2026-04-16 06:05:53-04:00,Weight Recorded,9.13
+2026-04-16 06:12:54-04:00,Clean Cycles,2556
+2026-04-16 06:12:55-04:00,Clean Cycle In Progress,
+2026-04-16 06:14:01-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-04-16 06:14:58-04:00,Litter Dispensed: 88,
+2026-04-16 06:15:20-04:00,Clean Cycle Complete,
+2026-04-16 06:18:26-04:00,Weight Recorded,9.07
+2026-04-16 21:04:56-04:00,Weight Recorded,9.51
