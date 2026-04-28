@@ -14579,3 +14579,11 @@ DateTime,Activity,Value
 2026-04-26 10:06:06-04:00,Clean Cycle Complete,
 2026-04-26 16:02:14-04:00,Weight Recorded,9.54
 2026-04-26 18:36:58-04:00,Weight Recorded,8.67
+2026-04-27 06:06:05-04:00,Weight Recorded,8.61
+2026-04-27 06:07:53-04:00,Weight Recorded,9.47
+2026-04-27 06:20:49-04:00,Weight Recorded,8.68
+2026-04-27 10:01:23-04:00,Clean Cycles,2599
+2026-04-27 10:01:23-04:00,Clean Cycle In Progress,
+2026-04-27 10:02:30-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-04-27 10:03:34-04:00,Clean Cycle Complete,
+2026-04-27 21:05:53-04:00,Weight Recorded,8.93
