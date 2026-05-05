@@ -14740,3 +14740,15 @@ DateTime,Activity,Value
 2026-05-03 17:07:19-04:00,Weight Recorded,9.47
 2026-05-03 21:29:45-04:00,Weight Recorded,8.97
 2026-05-03 21:32:38-04:00,Weight Recorded,9.66
+2026-05-04 06:15:08-04:00,Weight Recorded,8.91
+2026-05-04 06:18:47-04:00,Weight Recorded,8.88
+2026-05-04 07:15:50-04:00,Weight Recorded,9.6
+2026-05-04 10:38:12-04:00,Cat Detected,
+2026-05-04 10:38:12-04:00,DFILevelPercent,
+2026-05-04 10:38:12-04:00,Clean Cycles,2619
+2026-05-04 10:38:12-04:00,Clean Cycle In Progress,
+2026-05-04 10:39:20-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-05-04 10:39:20-04:00,DFILevelPercent,
+2026-05-04 10:40:25-04:00,Clean Cycle Complete,
+2026-05-04 17:25:18-04:00,Weight Recorded,8.94
+2026-05-04 17:27:23-04:00,Weight Recorded,9.69
