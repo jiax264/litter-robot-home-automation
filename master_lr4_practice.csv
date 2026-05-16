@@ -14967,3 +14967,40 @@ DateTime,Activity,Value
 2026-05-13 08:14:09-04:00,Clean Cycle Complete,
 2026-05-13 20:32:19-04:00,Cat Detected,
 2026-05-13 21:47:04-04:00,Weight Recorded,9.69
+2026-05-15 05:17:02-04:00,Clean Cycles,2651
+2026-05-15 05:17:02-04:00,Clean Cycle In Progress,
+2026-05-15 05:17:02-04:00,Cat Detected,
+2026-05-15 05:18:08-04:00,DFILevelPercent,
+2026-05-15 05:19:12-04:00,Clean Cycle Complete,
+2026-05-15 05:36:42-04:00,Cat Detected,
+2026-05-15 05:37:33-04:00,Weight Recorded,9.57
+2026-05-15 05:45:09-04:00,Weight Recorded,9.67
+2026-05-15 05:52:10-04:00,Clean Cycles,2652
+2026-05-15 05:52:10-04:00,Clean Cycle In Progress,
+2026-05-15 05:53:16-04:00,DFILevelPercent,
+2026-05-15 05:54:21-04:00,Clean Cycle Complete,
+2026-05-15 06:10:55-04:00,Clean Cycles,2653
+2026-05-15 06:10:55-04:00,Clean Cycle In Progress,
+2026-05-15 06:12:02-04:00,DFILevelPercent,
+2026-05-15 06:13:07-04:00,Clean Cycle Complete,
+2026-05-15 12:53:22-04:00,Cat Detected,
+2026-05-15 12:53:46-04:00,Weight Recorded,8.84
+2026-05-15 13:00:37-04:00,Weight Recorded,8.83
+2026-05-15 13:07:38-04:00,Clean Cycle In Progress,
+2026-05-15 13:07:38-04:00,Clean Cycles,2654
+2026-05-15 13:08:44-04:00,DFILevelPercent,
+2026-05-15 13:08:44-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-05-15 13:09:37-04:00,Litter Dispensed: 90,
+2026-05-15 13:09:58-04:00,Clean Cycle Complete,
+2026-05-15 19:16:56-04:00,Clean Cycles,2655
+2026-05-15 19:16:56-04:00,Clean Cycle In Progress,
+2026-05-15 19:18:03-04:00,DFILevelPercent,
+2026-05-15 19:18:03-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-05-15 19:19:07-04:00,Clean Cycle Complete,
+2026-05-15 19:19:45-04:00,Cat Detected,
+2026-05-15 19:21:10-04:00,Weight Recorded,9.76
+2026-05-15 19:28:10-04:00,Clean Cycles,2656
+2026-05-15 19:28:11-04:00,Clean Cycle In Progress,
+2026-05-15 19:29:18-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-05-15 19:29:18-04:00,DFILevelPercent,
+2026-05-15 19:30:22-04:00,Clean Cycle Complete,
