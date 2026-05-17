@@ -15004,3 +15004,21 @@ DateTime,Activity,Value
 2026-05-15 19:29:18-04:00,LitterBoxStatus.DRAWER_FULL,
 2026-05-15 19:29:18-04:00,DFILevelPercent,
 2026-05-15 19:30:22-04:00,Clean Cycle Complete,
+2026-05-16 05:37:04-04:00,Cat Detected,
+2026-05-16 05:38:09-04:00,Weight Recorded,9.66
+2026-05-16 05:40:07-04:00,Weight Recorded,8.84
+2026-05-16 05:47:08-04:00,Clean Cycles,2657
+2026-05-16 05:47:08-04:00,Clean Cycle In Progress,
+2026-05-16 05:48:14-04:00,DFILevelPercent,
+2026-05-16 05:48:14-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-05-16 05:48:44-04:00,Cycle Interrupted,
+2026-05-16 05:53:30-04:00,Clean Cycle Complete,
+2026-05-16 06:13:31-04:00,Weight Recorded,8.93
+2026-05-16 06:28:30-04:00,DFILevelPercent,
+2026-05-16 06:28:31-04:00,Clean Cycle In Progress,
+2026-05-16 06:28:31-04:00,Clean Cycles,2658
+2026-05-16 06:29:37-04:00,DFILevelPercent,
+2026-05-16 06:29:37-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-05-16 06:30:42-04:00,Clean Cycle Complete,
+2026-05-16 17:55:02-04:00,Weight Recorded,9.03
+2026-05-16 20:45:17-04:00,Weight Recorded,9.8
