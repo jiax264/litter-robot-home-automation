@@ -15158,3 +15158,47 @@ DateTime,Activity,Value
 2026-05-24 05:15:05-04:00,Weight Recorded,9.46
 2026-05-24 16:26:52-04:00,Weight Recorded,9.54
 2026-05-24 16:58:33-04:00,Weight Recorded,9.04
+2026-05-25 04:39:26-04:00,Weight Recorded,9.16
+2026-05-25 06:14:29-04:00,Weight Recorded,8.87
+2026-05-25 06:42:59-04:00,Weight Recorded,9.49
+2026-05-25 07:48:11-04:00,Clean Cycles,2674
+2026-05-25 07:48:11-04:00,DFILevelPercent,
+2026-05-25 07:48:11-04:00,Clean Cycle In Progress,
+2026-05-25 07:49:17-04:00,DFILevelPercent,
+2026-05-25 07:49:17-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-05-25 07:50:15-04:00,Litter Dispensed: 98,
+2026-05-25 07:50:35-04:00,Clean Cycle Complete,
+2026-05-25 09:58:40-04:00,Clean Cycles,2675
+2026-05-25 09:58:40-04:00,Clean Cycle In Progress,
+2026-05-25 09:58:40-04:00,DFILevelPercent,
+2026-05-25 09:58:53-04:00,Cycle Interrupted,
+2026-05-25 09:59:25-04:00,Cycle Interrupted,
+2026-05-25 09:59:46-04:00,Cycle Interrupted,
+2026-05-25 10:00:49-04:00,DFILevelPercent,
+2026-05-25 10:01:46-04:00,Litter Dispensed: 92,
+2026-05-25 10:02:07-04:00,Clean Cycle Complete,
+2026-05-25 11:04:55-04:00,Cat Detected,
+2026-05-25 11:06:01-04:00,Weight Recorded,9.01
+2026-05-25 11:13:01-04:00,Clean Cycles,2676
+2026-05-25 11:13:02-04:00,Clean Cycle In Progress,
+2026-05-25 11:14:10-04:00,DFILevelPercent,
+2026-05-25 11:15:15-04:00,Clean Cycle Complete,
+2026-05-25 16:02:21-04:00,Clean Cycles,2677
+2026-05-25 16:02:21-04:00,Clean Cycle In Progress,
+2026-05-25 16:03:20-04:00,Cycle Interrupted,
+2026-05-25 16:03:47-04:00,Cycle Interrupted,
+2026-05-25 16:05:31-04:00,Clean Cycle Complete,
+2026-05-25 20:21:45-04:00,Cat Detected,
+2026-05-25 20:22:38-04:00,Weight Recorded,9.69
+2026-05-25 20:25:46-04:00,Weight Recorded,9.64
+2026-05-25 20:32:47-04:00,Clean Cycles,2678
+2026-05-25 20:32:47-04:00,Clean Cycle In Progress,
+2026-05-25 20:33:53-04:00,DFILevelPercent,
+2026-05-25 20:34:57-04:00,Clean Cycle Complete,
+2026-05-25 21:37:24-04:00,Cat Detected,
+2026-05-25 21:38:14-04:00,Weight Recorded,8.94
+2026-05-25 21:45:16-04:00,Clean Cycles,2679
+2026-05-25 21:45:16-04:00,Clean Cycle In Progress,
+2026-05-25 21:46:22-04:00,DFILevelPercent,
+2026-05-25 21:47:14-04:00,Litter Dispensed: 88,
+2026-05-25 21:47:36-04:00,Clean Cycle Complete,
