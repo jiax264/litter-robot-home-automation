@@ -15297,3 +15297,23 @@ DateTime,Activity,Value
 2026-05-30 22:51:16-04:00,Weight Recorded,8.96
 2026-05-30 22:53:41-04:00,Weight Recorded,8.81
 2026-05-30 22:54:50-04:00,Weight Recorded,8.98
+2026-05-31 07:34:20-04:00,DFILevelPercent,
+2026-05-31 07:34:21-04:00,Clean Cycles,2691
+2026-05-31 07:34:21-04:00,Clean Cycle In Progress,
+2026-05-31 07:35:27-04:00,DFILevelPercent,
+2026-05-31 07:35:27-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-05-31 07:36:30-04:00,Clean Cycle Complete,
+2026-05-31 07:45:14-04:00,DFILevelPercent,
+2026-05-31 07:45:15-04:00,Clean Cycle In Progress,
+2026-05-31 07:45:15-04:00,Clean Cycles,2692
+2026-05-31 07:46:22-04:00,DFILevelPercent,
+2026-05-31 07:46:22-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-05-31 07:47:25-04:00,Clean Cycle Complete,
+2026-05-31 07:49:13-04:00,Weight Recorded,8.86
+2026-05-31 13:41:30-04:00,DFILevelPercent,
+2026-05-31 13:41:38-04:00,Clean Cycles,2693
+2026-05-31 13:41:38-04:00,Clean Cycle In Progress,
+2026-05-31 13:42:45-04:00,DFILevelPercent,
+2026-05-31 13:42:45-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-05-31 13:43:48-04:00,Clean Cycle Complete,
+2026-05-31 15:30:56-04:00,Weight Recorded,10.44
