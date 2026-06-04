@@ -15331,3 +15331,14 @@ DateTime,Activity,Value
 2026-06-02 21:42:11-04:00,LitterBoxStatus.DRAWER_FULL,
 2026-06-02 21:43:08-04:00,Litter Dispensed: 95,
 2026-06-02 21:43:29-04:00,Clean Cycle Complete,
+2026-06-03 05:55:02-04:00,Weight Recorded,8.9
+2026-06-03 06:16:39-04:00,Weight Recorded,9.4
+2026-06-03 08:29:58-04:00,DFILevelPercent,
+2026-06-03 08:29:58-04:00,Clean Cycle In Progress,
+2026-06-03 08:29:58-04:00,Clean Cycles,2705
+2026-06-03 08:31:04-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-06-03 08:31:04-04:00,DFILevelPercent,
+2026-06-03 08:32:01-04:00,Litter Dispensed: 91,
+2026-06-03 08:32:22-04:00,Clean Cycle Complete,
+2026-06-03 17:57:15-04:00,Weight Recorded,9.7
+2026-06-03 18:37:23-04:00,Weight Recorded,9.46
