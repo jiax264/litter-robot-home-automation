@@ -17261,3 +17261,14 @@ DateTime,Activity,Value
 2026-08-27 07:45:49-04:00,Clean Cycle Complete,
 2026-08-27 17:21:16-04:00,Weight Recorded,10.13
 2026-08-27 21:41:05-04:00,Weight Recorded,10.09
+2026-08-28 06:09:19-04:00,Weight Recorded,8.86
+2026-08-28 06:59:35-04:00,Weight Recorded,9.74
+2026-08-28 07:43:22-04:00,DFILevelPercent,
+2026-08-28 07:43:22-04:00,Clean Cycles,2956
+2026-08-28 07:43:23-04:00,Clean Cycle In Progress,
+2026-08-28 07:44:26-04:00,DFILevelPercent,
+2026-08-28 07:44:26-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-08-28 07:45:23-04:00,Litter Dispensed: 80,
+2026-08-28 07:45:44-04:00,Clean Cycle Complete,
+2026-08-28 20:00:19-04:00,Weight Recorded,10.42
+2026-08-28 21:30:00-04:00,Weight Recorded,10.02
