@@ -17969,3 +17969,7 @@ DateTime,Activity,Value
 2026-09-23 08:32:20-04:00,Cycle Interrupted,
 2026-09-23 08:33:01-04:00,Clean Cycle Complete,
 2026-09-23 16:50:16-04:00,Cat Detected,
+2026-09-24 22:43:28-04:00,Clean Cycle In Progress,
+2026-09-24 22:43:28-04:00,Clean Cycles,3055
+2026-09-24 22:44:40-04:00,DFILevelPercent,
+2026-09-24 22:45:47-04:00,Clean Cycle Complete,
