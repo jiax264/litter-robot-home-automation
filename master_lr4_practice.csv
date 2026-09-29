@@ -18051,3 +18051,51 @@ DateTime,Activity,Value
 2026-09-27 21:24:48-04:00,Weight Recorded,10.46
 2026-09-27 22:42:18-04:00,Weight Recorded,10.47
 2026-09-27 22:48:10-04:00,Weight Recorded,10.34
+2026-09-28 00:25:36-04:00,DFILevelPercent,
+2026-09-28 00:29:48-04:00,Clean Cycles,3067
+2026-09-28 00:29:48-04:00,Clean Cycle In Progress,
+2026-09-28 00:30:56-04:00,DFILevelPercent,
+2026-09-28 00:30:56-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-09-28 00:32:01-04:00,Clean Cycle Complete,
+2026-09-28 00:33:05-04:00,DFILevelPercent,
+2026-09-28 00:34:01-04:00,Clean Cycles,3068
+2026-09-28 00:34:02-04:00,Clean Cycle In Progress,
+2026-09-28 00:34:07-04:00,Cycle Interrupted,
+2026-09-28 01:01:45-04:00,DFILevelPercent,
+2026-09-28 01:02:50-04:00,Clean Cycle Complete,
+2026-09-28 04:37:49-04:00,Cat Detected,
+2026-09-28 04:40:18-04:00,Weight Recorded,10.46
+2026-09-28 04:47:19-04:00,Clean Cycle In Progress,
+2026-09-28 04:47:19-04:00,Clean Cycles,3069
+2026-09-28 04:48:26-04:00,DFILevelPercent,
+2026-09-28 04:49:31-04:00,Clean Cycle Complete,
+2026-09-28 06:21:32-04:00,Cat Detected,
+2026-09-28 06:22:54-04:00,Weight Recorded,10.34
+2026-09-28 06:29:55-04:00,Clean Cycles,3070
+2026-09-28 06:29:56-04:00,Clean Cycle In Progress,
+2026-09-28 06:31:02-04:00,DFILevelPercent,
+2026-09-28 06:32:07-04:00,Clean Cycle Complete,
+2026-09-28 06:45:04-04:00,Cat Detected,
+2026-09-28 06:45:55-04:00,Weight Recorded,10.37
+2026-09-28 06:52:55-04:00,Clean Cycles,3071
+2026-09-28 06:52:56-04:00,Clean Cycle In Progress,
+2026-09-28 06:54:03-04:00,DFILevelPercent,
+2026-09-28 06:55:07-04:00,Clean Cycle Complete,
+2026-09-28 11:08:00-04:00,Clean Cycles,3072
+2026-09-28 11:08:00-04:00,Clean Cycle In Progress,
+2026-09-28 11:09:08-04:00,DFILevelPercent,
+2026-09-28 11:10:12-04:00,Clean Cycle Complete,
+2026-09-28 22:07:03-04:00,Cat Detected,
+2026-09-28 22:07:37-04:00,Weight Recorded,10.62
+2026-09-28 22:14:39-04:00,Clean Cycle In Progress,
+2026-09-28 22:14:39-04:00,Clean Cycles,3073
+2026-09-28 22:15:45-04:00,DFILevelPercent,
+2026-09-28 22:16:19-04:00,Cycle Interrupted,
+2026-09-28 22:19:38-04:00,Clean Cycle Complete,
+2026-09-28 22:27:18-04:00,Cat Detected,
+2026-09-28 22:30:13-04:00,Weight Recorded,10.47
+2026-09-28 22:31:55-04:00,Weight Recorded,5.15
+2026-09-28 22:38:56-04:00,Clean Cycle In Progress,
+2026-09-28 22:38:56-04:00,Clean Cycles,3074
+2026-09-28 22:40:03-04:00,DFILevelPercent,
+2026-09-28 22:41:07-04:00,Clean Cycle Complete,
