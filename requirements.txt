@@ -1,4 +1,4 @@
-nest_asyncio
-asyncio
-pylitterbot>=2025.7.0
-pandas
+nest_asyncio==1.6.0
+asyncio==4.0.0
+pylitterbot==2025.7.0
+pandas==3.0.6
