@@ -18877,3 +18877,12 @@ DateTime,Activity,Value
 2026-10-25 21:23:37-04:00,Weight Recorded,10.12
 2026-10-25 21:56:17-04:00,Weight Recorded,10.03
 2026-10-25 22:48:37-04:00,Weight Recorded,10.13
+2026-10-26 07:36:25-04:00,Weight Recorded,10.22
+2026-10-26 07:58:04-04:00,DFILevelPercent,
+2026-10-26 07:58:05-04:00,Clean Cycles,3200
+2026-10-26 07:58:05-04:00,Clean Cycle In Progress,
+2026-10-26 07:59:14-04:00,DFILevelPercent,
+2026-10-26 07:59:14-04:00,LitterBoxStatus.DRAWER_FULL,
+2026-10-26 08:00:20-04:00,Clean Cycle Complete,
+2026-10-26 16:37:14-04:00,Weight Recorded,10.06
+2026-10-26 16:40:20-04:00,Weight Recorded,10.34
