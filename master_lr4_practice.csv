@@ -19423,3 +19423,16 @@ DateTime,Activity,Value
 2026-11-17 16:26:37-05:00,Weight Recorded,9.93
 2026-11-17 21:09:21-05:00,Weight Recorded,6.59
 2026-11-17 21:14:08-05:00,Weight Recorded,9.87
+2026-11-18 06:12:44-05:00,Weight Recorded,9.54
+2026-11-18 06:50:31-05:00,Weight Recorded,9.66
+2026-11-18 12:32:40-05:00,Weight Recorded,9.64
+2026-11-18 12:39:52-05:00,Weight Recorded,9.69
+2026-11-18 15:20:05-05:00,DFILevelPercent,
+2026-11-18 15:20:09-05:00,Clean Cycle In Progress,
+2026-11-18 15:20:09-05:00,Clean Cycles,3302
+2026-11-18 15:21:16-05:00,DFILevelPercent,
+2026-11-18 15:21:16-05:00,LitterBoxStatus.DRAWER_FULL,
+2026-11-18 15:22:21-05:00,Clean Cycle Complete,
+2026-11-18 16:24:47-05:00,Weight Recorded,10.02
+2026-11-18 18:53:36-05:00,Weight Recorded,10.17
+2026-11-18 21:44:14-05:00,Weight Recorded,9.82
