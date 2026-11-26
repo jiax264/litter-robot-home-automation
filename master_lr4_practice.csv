@@ -19589,3 +19589,84 @@ DateTime,Activity,Value
 2026-11-24 22:34:30-05:00,Clean Cycles,3321
 2026-11-24 22:35:38-05:00,DFILevelPercent,
 2026-11-24 22:36:42-05:00,Clean Cycle Complete,
+2026-11-25 06:08:23-05:00,Cat Detected,
+2026-11-25 06:09:27-05:00,Weight Recorded,9.57
+2026-11-25 06:16:28-05:00,Clean Cycles,3322
+2026-11-25 06:16:28-05:00,Clean Cycle In Progress,
+2026-11-25 06:17:34-05:00,DFILevelPercent,
+2026-11-25 06:18:32-05:00,Cycle Interrupted,
+2026-11-25 06:19:26-05:00,Clean Cycle Complete,
+2026-11-25 06:25:29-05:00,Cat Detected,
+2026-11-25 06:34:30-05:00,Clean Cycles,3323
+2026-11-25 06:34:31-05:00,Clean Cycle In Progress,
+2026-11-25 06:34:38-05:00,Cycle Interrupted,
+2026-11-25 06:36:58-05:00,Cycle Interrupted,
+2026-11-25 06:37:18-05:00,Cycle Interrupted,
+2026-11-25 06:39:03-05:00,Cycle Interrupted,
+2026-11-25 06:43:27-05:00,DFILevelPercent,
+2026-11-25 06:44:32-05:00,Clean Cycle Complete,
+2026-11-25 06:51:29-05:00,Cat Detected,
+2026-11-25 07:00:31-05:00,Clean Cycle In Progress,
+2026-11-25 07:00:31-05:00,Clean Cycles,3324
+2026-11-25 07:00:53-05:00,Cycle Interrupted,
+2026-11-25 07:02:29-05:00,Cycle Interrupted,
+2026-11-25 07:02:54-05:00,Cycle Interrupted,
+2026-11-25 07:04:12-05:00,Cycle Interrupted,
+2026-11-25 07:05:46-05:00,DFILevelPercent,
+2026-11-25 07:06:51-05:00,Clean Cycle Complete,
+2026-11-25 07:09:30-05:00,Cat Detected,
+2026-11-25 07:16:50-05:00,Clean Cycles,3325
+2026-11-25 07:16:50-05:00,Clean Cycle In Progress,
+2026-11-25 07:17:13-05:00,Cycle Interrupted,
+2026-11-25 07:18:50-05:00,Cycle Interrupted,
+2026-11-25 07:20:09-05:00,Cycle Interrupted,
+2026-11-25 07:21:42-05:00,DFILevelPercent,
+2026-11-25 07:22:47-05:00,Clean Cycle Complete,
+2026-11-25 07:30:27-05:00,Cat Detected,
+2026-11-25 07:39:28-05:00,Clean Cycles,3326
+2026-11-25 07:39:28-05:00,Clean Cycle In Progress,
+2026-11-25 07:39:52-05:00,Cycle Interrupted,
+2026-11-25 07:40:46-05:00,Cycle Interrupted,
+2026-11-25 07:42:08-05:00,Cycle Interrupted,
+2026-11-25 07:43:26-05:00,Cycle Interrupted,
+2026-11-25 07:45:37-05:00,DFILevelPercent,
+2026-11-25 07:46:42-05:00,Clean Cycle Complete,
+2026-11-25 08:23:08-05:00,Cat Detected,
+2026-11-25 08:36:10-05:00,Clean Cycles,3327
+2026-11-25 08:36:10-05:00,Clean Cycle In Progress,
+2026-11-25 08:37:17-05:00,DFILevelPercent,
+2026-11-25 08:38:21-05:00,Clean Cycle Complete,
+2026-11-25 09:52:16-05:00,Cat Detected,
+2026-11-25 09:52:52-05:00,Weight Recorded,9.84
+2026-11-25 09:55:55-05:00,Weight Recorded,9.56
+2026-11-25 10:02:56-05:00,Clean Cycle In Progress,
+2026-11-25 10:02:56-05:00,Clean Cycles,3328
+2026-11-25 10:04:02-05:00,DFILevelPercent,
+2026-11-25 10:05:07-05:00,Clean Cycle Complete,
+2026-11-25 13:49:43-05:00,Cat Detected,
+2026-11-25 13:50:51-05:00,Weight Recorded,9.67
+2026-11-25 13:57:52-05:00,Clean Cycle In Progress,
+2026-11-25 13:57:52-05:00,Clean Cycles,3329
+2026-11-25 13:58:58-05:00,DFILevelPercent,
+2026-11-25 14:00:02-05:00,Clean Cycle Complete,
+2026-11-25 16:15:55-05:00,Cat Detected,
+2026-11-25 16:16:34-05:00,Weight Recorded,9.69
+2026-11-25 16:23:35-05:00,Clean Cycles,3330
+2026-11-25 16:23:36-05:00,Clean Cycle In Progress,
+2026-11-25 16:24:41-05:00,DFILevelPercent,
+2026-11-25 16:25:29-05:00,Litter Dispensed: 95,
+2026-11-25 16:25:50-05:00,Clean Cycle Complete,
+2026-11-25 18:18:31-05:00,Cat Detected,
+2026-11-25 18:27:33-05:00,Clean Cycle In Progress,
+2026-11-25 18:27:33-05:00,Clean Cycles,3331
+2026-11-25 18:28:20-05:00,Cycle Interrupted,
+2026-11-25 18:29:54-05:00,DFILevelPercent,
+2026-11-25 18:30:59-05:00,Clean Cycle Complete,
+2026-11-25 21:57:51-05:00,Cat Detected,
+2026-11-25 21:58:31-05:00,Weight Recorded,9.56
+2026-11-25 22:01:11-05:00,Weight Recorded,9.77
+2026-11-25 22:08:12-05:00,Clean Cycles,3332
+2026-11-25 22:08:12-05:00,Clean Cycle In Progress,
+2026-11-25 22:08:58-05:00,Cycle Interrupted,
+2026-11-25 22:10:34-05:00,DFILevelPercent,
+2026-11-25 22:11:39-05:00,Clean Cycle Complete,
